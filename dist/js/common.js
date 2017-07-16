@@ -1,13 +1,5 @@
 $(function() {
 
-		// Preloader
-		/*setTimeout(function() {
-
-			$(".preloader").addClass("done")
-
-		}, 1500);*/
-
-
 	// PopUp
 	$(".popup-youtube").magnificPopup({
 		type: 'iframe',
@@ -50,6 +42,6 @@ $(function() {
 		return false;
 	});
 
-	$(".preloader").fadeOut();
+	$(".preloader").fadeOut("complete");
 
 });
