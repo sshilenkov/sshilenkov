@@ -1,18 +1,27 @@
 $(function() {
 
-	$(".video-preview").magnificPopup({
+		// Preloader
+		/*setTimeout(function() {
+
+			$(".preloader").addClass("done")
+
+		}, 1500);*/
+
+
+	// PopUp
+	$(".popup-youtube").magnificPopup({
 		type: 'iframe',
 
 		iframe: {
-			patterns: {
+		patterns: {
 				youtube: {
 					index: 'youtube.com/',
 
-					id: 'v=',
+					id: 'v= null',
 
-					src: '//www.youtube.com/embed/PZP3QmYKGGo'
+					src: '//www.youtube.com/embed/%.popup-youtube%?autoplay=1&rel=0'
 				}
-			}
+		}
 		}
 	});
 
@@ -25,7 +34,7 @@ $(function() {
 
 	//E-mail Ajax Send
 	//Documentation & Example: https://github.com/agragregra/uniMail
-	$("form").submit(function() { //Change
+	$(".button").submit(function() { //Change
 		var th = $(this);
 		$.ajax({
 			type: "POST",
@@ -40,5 +49,7 @@ $(function() {
 		});
 		return false;
 	});
+
+	$(".preloader").fadeOut();
 
 });
