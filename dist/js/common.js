@@ -42,6 +42,6 @@ $(function() {
 		return false;
 	});
 
-	$(".preloader").fadeOut("complete");
+	
 
 });
