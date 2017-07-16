@@ -3,6 +3,18 @@ $(function() {
 	// PopUp
 	$(".popup-youtube").magnificPopup({
 		type: 'iframe',
+
+		iframe: {
+		patterns: {
+				youtube: {
+					index: 'youtube.com/',
+
+					id: 'v= null',
+
+					src: 'https://www.youtube.com/embed/PZP3QmYKGGo'
+				}
+		}
+		}
 	});
 
 	//SVG Fallback
