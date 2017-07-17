@@ -17,6 +17,38 @@ $(function() {
 		}
 	});
 
+// MMenu
+
+	jQuery(document).ready(function( $ ) {
+		$("#menu").mmenu({
+			"slidingSubmenus": false,
+			"extensions": [
+				"fx-menu-zoom"
+			]
+		});
+	});
+
+	var $menu = $("#my-menu").mmenu({
+	// options
+	});
+	var $icon = $("#my-icon");
+	var API = $menu.data( "mmenu" );
+
+	$icon.on( "click", function() {
+		API.open();
+	});
+
+	API.bind( "open:finish", function() {
+		setTimeout(function() {
+			$icon.addClass( "is-active" );
+		}, 10);
+	});
+	API.bind( "close:finish", function() {
+		setTimeout(function() {
+			$icon.removeClass( "is-active" );
+		}, 10);
+	});
+
 	//SVG Fallback
 	if(!Modernizr.svg) {
 		$("img[src*='svg']").attr("src", function() {
@@ -41,7 +73,5 @@ $(function() {
 		});
 		return false;
 	});
-
-	
 
 });

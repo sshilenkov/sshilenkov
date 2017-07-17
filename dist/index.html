@@ -17,7 +17,7 @@
 	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
-	<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
+
 	
 
 	<!-- Bootstrap v3.3.4 Grid Styles -->
@@ -45,19 +45,16 @@
 
 <body>
 
-
-	<!-- Preloader Start -->
-		<div class="preloader">
-
-			<div class="loader">
-
-			</div>
-
-		</div>
-
-		<div class="page-preloader"></div>
-	<!-- Preloader End -->
-
+	<nav id="my-menu">
+		<ul>
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Цены</a></li>
+			<li><a href="#">Кейсы</a></li>
+			<li><a href="#">Education</a></li>
+			<li><a href="#">Контакты</a></li>
+		</ul>
+	</nav>
+	<a href="#my-page"></a>
 
 	<section class="header">
 		
@@ -67,11 +64,11 @@
 				
 				<div class="row">
 					
-					<div class="col-md-3">
+					<div class="col-lg-3 col-md-3 col-xs-5">
 
 						<div class="top-logo">
 						
-							<a href="https://www.kit.msk.ru/"><img src="img/logo.png" alt="Alt" class="logo"></a>
+							<a href="https://www.kit.msk.ru/"><img class="logo" src="img/logo.png" alt="Alt"></a>
 
 							<div class="logo-item"></div>
 
@@ -83,7 +80,7 @@
 
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-lg-6 col-md-6 col-xs-2">
 						<div class="top-menu">
 							<ul>
 								<li><a href="#">Главная</a></li>
@@ -93,9 +90,24 @@
 								<li><a href="#">Контакты</a></li>
 							</ul>
 						</div>
+
+							<div class="mobile-top-menu">
+
+								<a href="#my-menu">
+								
+									<button id="my-icon" class="hamburger hamburger--collapse" type="button">
+										<span class="hamburger-box">
+											<span class="hamburger-inner"></span>
+										</span>
+									</button>
+								
+								</a>
+
+							</div>
+
 					</div>
 
-					<div class="col-md-3">
+					<div class="col-lg-3 col-md-3 col-xs-5">
 						<div class="border-phone">
 							<div class="top-phone"><a href="#"> <i class="fa fa-phone" aria-hidden="true"></i> 8 <b>(499)</b> 800 85 25</a href="#"></div>
 						</div>
@@ -114,7 +126,7 @@
 				
 				<div class="row">
 					
-					<div class="col-md-6">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						
 						<div class="main-text">
 				
@@ -125,7 +137,7 @@
 
 						<div class="header-video">
 							
-							<div class="col-md-4 col-md-offset-1">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-md-offset-0 col-sm-offset-0 col-xs-offset-0">
 								
 
 								<div class="video">
@@ -140,7 +152,7 @@
 
 					</div>
 
-					<div class="col-md-4 col-md-offset-1">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-7">
 						
 						<div class="iphone">
 							
@@ -177,6 +189,8 @@
 			</div>
 
 		</div>
+
+
 
 	</section>
 	
