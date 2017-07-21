@@ -13,23 +13,24 @@ $(function() {
 
 					src: 'https://www.youtube.com/embed/PZP3QmYKGGo'
 				}
-		}
+			}
 		}
 	});
 
 // MMenu
 
-	jQuery(document).ready(function( $ ) {
-		$("#menu").mmenu({
-			"slidingSubmenus": false,
-			"extensions": [
-				"fx-menu-zoom"
-			]
-		});
-	});
+	
+	// $("#my-menu").mmenu({
+
+	// });
+	
 
 	var $menu = $("#my-menu").mmenu({
-	// options
+		"slidingSubmenus": true,
+		"extensions": [
+			"fx-menu-zoom",
+			"pagedim-black"
+		]
 	});
 	var $icon = $("#my-icon");
 	var API = $menu.data( "mmenu" );
