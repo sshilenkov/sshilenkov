@@ -79,6 +79,7 @@ $(function() {
 
 	$('.icon1').hover(
 		function() {
+			$('.services').addClass('fix');
 			$('.description1').addClass('active');
 			$('.layer1').addClass('layer-active');
 			$('.layer2').addClass('layer-passive');
