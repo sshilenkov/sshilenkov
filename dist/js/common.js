@@ -172,4 +172,130 @@ $(function() {
 			$('.layer4').removeClass('layer-passive');
 		});
 
+	// Troubles = Solutions
+
+	// Troubles
+
+	$('.problem1').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem1-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem1-description').removeClass('visible');
+		});
+
+	$('.problem2').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem2-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem2-description').removeClass('visible');
+		});
+
+	$('.problem3').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem3-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem3-description').removeClass('visible');
+		});
+
+	$('.problem4').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem4-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem4-description').removeClass('visible');
+		});
+
+	$('.problem5').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem5-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem5-description').removeClass('visible');
+		});
+
+	$('.problem6').hover(
+		function() {
+			$('.solutions').addClass('display-none');
+			$('.problem6-description').addClass('visible');
+		},
+		function() {
+			$('.solutions').removeClass('display-none');
+			$('.problem6-description').removeClass('visible');
+		});
+
+	// Solutions
+
+	$('.solution1').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution1-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution1-description').removeClass('visible');
+		});
+
+	$('.solution2').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution2-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution2-description').removeClass('visible');
+		});
+
+	$('.solution3').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution3-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution3-description').removeClass('visible');
+		});
+
+	$('.solution4').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution4-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution4-description').removeClass('visible');
+		});
+
+	$('.solution5').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution5-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution5-description').removeClass('visible');
+		});
+
+	$('.solution6').hover(
+		function() {
+			$('.problems').addClass('display-none');
+			$('.solution6-description').addClass('visible');
+		},
+		function() {
+			$('.problems').removeClass('display-none');
+			$('.solution6-description').removeClass('visible');
+		});
+
 });
