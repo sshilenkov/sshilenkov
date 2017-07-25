@@ -52,6 +52,7 @@ $(function() {
 		items: 1,
 		margin: 10,
 		nav: false,
+		dotsContainer: ".carousel-dots"
 	});
 
 	$('.next').click(function() {
@@ -59,8 +60,8 @@ $(function() {
 	});
 
 	$('.prev').click(function() {
-	// With optional speed parameter
-	// Parameters has to be in square bracket '[]'
+		// With optional speed parameter
+		// Parameters has to be in square bracket '[]'
 		owl.trigger('prev.owl.carousel');
 	})
 
