@@ -18,13 +18,7 @@ $(function() {
 	});
 
 // MMenu
-
 	
-	// $("#my-menu").mmenu({
-
-	// });
-	
-
 	var $menu = $("#my-menu").mmenu({
 		"slidingSubmenus": true,
 		"extensions": [
@@ -49,6 +43,26 @@ $(function() {
 			$icon.removeClass( "is-active" );
 		}, 10);
 	});
+
+	// Owl-Carousel
+
+	var owl = $('.owl-carousel');
+	owl.owlCarousel({
+		loop: true,
+		items: 1,
+		margin: 10,
+		nav: false,
+	});
+
+	$('.next').click(function() {
+		owl.trigger('next.owl.carousel');
+	});
+
+	$('.prev').click(function() {
+	// With optional speed parameter
+	// Parameters has to be in square bracket '[]'
+		owl.trigger('prev.owl.carousel');
+	})
 
 	//SVG Fallback
 	if(!Modernizr.svg) {
