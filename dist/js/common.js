@@ -1,6 +1,6 @@
 $(function() {
 
-		$('#before-load').find('#preload').fadeOut().end().delay(400).fadeOut('slow');
+	$('#before-load').find('#preload').fadeOut().end().delay(400).fadeOut('slow');
 
 	// Scroll To
 
