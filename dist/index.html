@@ -45,12 +45,16 @@
 
 <body>
 
+	<div id="before-load" style="position:fixed;left:0;top:0;right:0;bottom:0;background:#fff;z-index:1001;">
+		<div id="preload" style="width:64px;height:64px;position:absolute;left:50%;top:50%;background:url('../img/preloader.gif');"></div>
+	</div>
+
 	<nav id="my-menu">
 		<ul>
 			<li><a href="#">Главная</a></li>
 			<li><a href="#">Цены</a></li>
 			<li><a href="#">Кейсы</a></li>
-			<li><a href="#">Education</a></li>
+			<li><a href="#education">Education</a></li>
 			<li><a href="#">Контакты</a></li>
 		</ul>
 	</nav>
@@ -83,10 +87,10 @@
 					<div class="col-lg-6 col-md-6 col-sm-2 col-xs-3">
 						<div class="top-menu">
 							<ul>
-								<li><a href="#">Главная</a></li>
-								<li><a href="#">Цены</a></li>
-								<li><a href="#">Кейсы</a></li>
-								<li><a href="#">Education</a></li>
+								<li><a href="#" id="main">Главная</a></li>
+								<li><a href="#price">Цены</a></li>
+								<li><a href="#caise">Кейсы</a></li>
+								<li><a href="#education">Education</a></li>
 								<li><a href="#">Контакты</a></li>
 							</ul>
 						</div>
@@ -659,7 +663,7 @@
 				
 				<div class="our-services">
 					
-					<h3>Наши услуги</h3>
+					<h3 id="education">Наши услуги</h3>
 
 					<div class="col-sm-offset-1">
 						
@@ -745,7 +749,7 @@
 				
 				<div class="col-sm-12">
 					
-					<h4>Выберите подходящий тариф</h4>
+					<h4 id="price">Выберите подходящий тариф</h4>
 
 				</div>
 
@@ -814,7 +818,7 @@
 				
 				<div class="col-sm-10 col-sm-offset-1">
 					
-					<h3>Как начать с нами работать?</h3>
+					<h3 id="caise">Как начать с нами работать?</h3>
 
 				</div>
 

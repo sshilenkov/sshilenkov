@@ -1,5 +1,15 @@
 $(function() {
 
+		$('#before-load').find('#preload').fadeOut().end().delay(400).fadeOut('slow');
+
+	// Scroll To
+
+	$('a[href^="#"]').click(function() {
+		elementClick = $(this).attr("href");
+		destination = $(elementClick).offset().top;
+		$('body').animate( { scrollTop: destination }, 1500 );
+	});
+
 	// PopUp
 	$(".popup-youtube").magnificPopup({
 		type: 'iframe',
