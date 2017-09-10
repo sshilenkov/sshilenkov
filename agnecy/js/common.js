@@ -1,5 +1,19 @@
 $(function() {
 
+	// Gallery
+	$(".navigation ul li").click(function() {
+		$(".navigation ul li").removeClass("click");
+		$(this).addClass("click");
+	});
+
+	// Magnific-Popup
+	$('.gallery').magnificPopup({
+		delegate: 'a', // child items selector, by clicking on it popup will open
+		type: 'image',
+		gallery: {enabled: true}
+		// other options
+	});
+
 	//SVG Fallback
 	if(!Modernizr.svg) {
 		$("img[src*='svg']").attr("src", function() {
