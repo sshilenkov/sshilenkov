@@ -14,8 +14,11 @@ $(function() {
 		// other options
 	});
 
-	// WOW init
-	new WOW().init();
+	// Scroll Animation
+	$(".item1, .item5").animated("bounceInLeft");
+	$(".item2, .item3").animated("bounceInDown");
+	$(".item6, .item7").animated("bounceInUp");
+	$(".item4, .item8").animated("bounceInRight");
 
 	//SVG Fallback
 	if(!Modernizr.svg) {
