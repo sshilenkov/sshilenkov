@@ -14,6 +14,9 @@ $(function() {
 		// other options
 	});
 
+	// WOW init
+	new WOW().init();
+
 	//SVG Fallback
 	if(!Modernizr.svg) {
 		$("img[src*='svg']").attr("src", function() {
