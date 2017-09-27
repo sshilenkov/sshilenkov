@@ -4,6 +4,27 @@ $(function() {
 	$(".navigation ul li").click(function() {
 		$(".navigation ul li").removeClass("click");
 		$(this).addClass("click");
+		$(".collection, .cats, .dogs, .cavys, .girls").removeClass("show");
+	});
+
+	$(".navigation .all").click(function() {
+		$(".collection").addClass("show");
+	});
+
+	$(".navigation .cat").click(function() {
+		$(".cats").addClass("show");
+	});
+
+	$(".navigation .dog").click(function() {
+		$(".dogs").addClass("show");
+	});
+
+	$(".navigation .cavy").click(function() {
+		$(".cavys").addClass("show");
+	});
+
+	$(".navigation .girl").click(function() {
+		$(".girls").addClass("show");
 	});
 
 	// Magnific-Popup
