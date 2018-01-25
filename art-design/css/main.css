@@ -67,7 +67,8 @@
   position: absolute;
   width: 100%;
   height: 60rem;
-  top: 0; }
+  top: 0;
+  z-index: 90; }
   .top-slider .slide {
     position: relative;
     display: -webkit-box;
@@ -85,12 +86,14 @@
       bottom: 12rem;
       font-size: 6rem;
       color: #fff;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #000; }
     .top-slider .slide p {
       position: absolute;
       bottom: 8rem;
       font-size: 2.5rem;
-      color: #fff; }
+      color: #fff;
+      text-shadow: 0 0 20px #000; }
 
 .offers {
   position: relative;
@@ -123,6 +126,27 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+  .offers_circles .circle {
+    width: 18rem;
+    height: 18rem;
+    margin-top: 8rem;
+    border-radius: 50%; }
+  .offers_circles .ballons {
+    background-image: url("../img/balloons.png");
+    background-size: cover;
+    background-color: #4eb9f4; }
+  .offers_circles .boxes {
+    background-image: url("../img/boxes.png");
+    background-size: cover;
+    background-color: #6fc125; }
+  .offers_circles .flowers {
+    background-image: url("../img/flowers.png");
+    background-size: cover;
+    background-color: #ff5649; }
+  .offers_circles .finger {
+    background-image: url("../img/finger.png");
+    background-size: cover;
+    background-color: #e48f23; }
 
 html {
   font-size: 10px; }
