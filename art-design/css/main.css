@@ -22,8 +22,13 @@
 
 .menu ul {
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
   .menu ul li {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     font-size: 17px;
     font-family: "Roboto", sans-serif;
@@ -31,6 +36,8 @@
     opacity: .75;
     margin-left: 3rem;
     padding: 4px 12px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
     transition: all .3s ease; }
     .menu ul li:hover {
       cursor: pointer;
@@ -45,6 +52,8 @@
       opacity: 1;
       color: #fff;
       border-radius: 4px;
+      -webkit-transition: all .3s ease;
+      -o-transition: all .3s ease;
       transition: all .3s ease; }
       .menu ul li:last-child .fa-user {
         font-size: 12px;
@@ -62,7 +71,11 @@
   z-index: 90; }
   .top-slider .slide {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
     height: 60rem;
@@ -84,8 +97,15 @@
 
 .offers {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
   .offers h2 {
     margin-top: 58rem;
@@ -99,14 +119,70 @@
     font-weight: 300;
     margin-top: 0; }
 
+.circles-block {
+  height: 260px; }
+
 .offers_circles {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between; }
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 8rem; }
   .offers_circles .circle {
+    position: relative;
     width: 18rem;
     height: 18rem;
-    margin-top: 8rem;
-    border-radius: 50%; }
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; }
+    .offers_circles .circle::before {
+      content: '';
+      background-color: #000;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0; }
+    .offers_circles .circle:hover {
+      cursor: pointer;
+      opacity: .8; }
+      .offers_circles .circle:hover::before {
+        opacity: .5; }
+    .offers_circles .circle:hover .circle-description {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+      visibility: visible; }
+    .offers_circles .circle-description {
+      display: block;
+      font-size: 1.2rem;
+      width: 12rem;
+      height: 8rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 5rem;
+      -webkit-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      -webkit-transform: translateX(-150px);
+      -ms-transform: translateX(-150px);
+      transform: translateX(-150px);
+      visibility: hidden; }
   .offers_circles .ballons {
     background-image: url("../img/balloons.png");
     background-size: cover;
@@ -123,6 +199,36 @@
     background-image: url("../img/finger.png");
     background-size: cover;
     background-color: #e48f23; }
+
+hr {
+  margin-top: 5rem;
+  opacity: .5; }
+
+.our-works {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .our-works .works {
+    margin-top: 45px;
+    margin-bottom: 30px; }
+    .our-works .works img {
+      margin-right: 26px; }
+    .our-works .works:last-child {
+      margin-bottom: 75px; }
+    .our-works .works h3 {
+      font-size: 2.7rem;
+      margin: .5rem 0;
+      color: #404040;
+      font-weight: 300; }
+    .our-works .works p {
+      font-size: 15px;
+      line-height: 22px;
+      color: #8b8b8b;
+      font-weight: 300; }
 
 html {
   font-size: 10px; }

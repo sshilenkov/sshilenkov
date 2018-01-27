@@ -22,8 +22,13 @@
 
 .menu ul {
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
   .menu ul li {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     font-size: 17px;
     font-family: "Roboto", sans-serif;
@@ -31,6 +36,8 @@
     opacity: .75;
     margin-left: 3rem;
     padding: 4px 12px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
     transition: all .3s ease; }
     .menu ul li:hover {
       cursor: pointer;
@@ -45,6 +52,8 @@
       opacity: 1;
       color: #fff;
       border-radius: 4px;
+      -webkit-transition: all .3s ease;
+      -o-transition: all .3s ease;
       transition: all .3s ease; }
       .menu ul li:last-child .fa-user {
         font-size: 12px;
