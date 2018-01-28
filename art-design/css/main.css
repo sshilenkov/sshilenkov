@@ -1,3 +1,4 @@
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 .top-line {
   position: relative;
   height: 9rem;
@@ -26,19 +27,26 @@
   .menu ul li {
     flex-direction: row;
     font-size: 17px;
-    font-family: "Roboto", sans-serif;
+    font-family: "RobotoRegular", sans-serif;
     color: #454545;
     opacity: .75;
     margin-left: 3rem;
     padding: 4px 12px;
     transition: all .3s ease; }
+    .menu ul li a {
+      text-decoration: none;
+      color: #454545; }
     .menu ul li:hover {
       cursor: pointer;
-      background-color: rgba(222, 109, 110, 0.7);
+      background-color: rgba(222, 109, 110, 0.8);
       padding: 4px 12px;
       opacity: 1;
       color: #fff;
       border-radius: 4px; }
+      .menu ul li:hover a {
+        color: #fff; }
+    .menu ul li:active {
+      background-color: #de6d6e; }
     .menu ul li:last-child {
       padding: 4px 12px;
       background-color: #de6d6e;
@@ -46,12 +54,24 @@
       color: #fff;
       border-radius: 4px;
       transition: all .3s ease; }
+      .menu ul li:last-child a {
+        color: #fff; }
       .menu ul li:last-child .fa-user {
         font-size: 12px;
         margin-right: 8px; }
       .menu ul li:last-child:hover {
         cursor: pointer;
-        background-color: rgba(222, 109, 110, 0.9); }
+        background-color: rgba(222, 109, 110, 0.8);
+        color: #fff; }
+      .menu ul li:last-child:active {
+        background-color: #de6d6e; }
+      .menu ul li:last-child:hover a {
+        color: #fff; }
+  .menu ul:hover .login {
+    background-color: #fff;
+    color: #454545; }
+  .menu ul:hover .login a {
+    color: #454545; }
 
 .top-slider {
   display: block;
@@ -72,12 +92,15 @@
       position: absolute;
       bottom: 12rem;
       font-size: 6rem;
+      font-family: "RobotoRegular", sans-serif;
       color: #fff;
       text-transform: uppercase;
       text-shadow: 0 0 20px #000; }
     .top-slider .slide p {
       position: absolute;
       bottom: 8rem;
+      font-family: "RobotoLight", sans-serif;
+      font-weight: 300;
       font-size: 2.5rem;
       color: #fff;
       text-shadow: 0 0 20px #000; }
@@ -89,10 +112,12 @@
   align-items: center; }
   .offers h2 {
     margin-top: 58rem;
+    font-family: "RobotoLight", sans-serif;
     font-size: 3.5rem;
     color: #404040;
     margin-bottom: 2rem; }
   .offers p {
+    font-family: "RobotoLight", sans-serif;
     font-size: 1.9rem;
     text-align: center;
     color: #636363;
@@ -125,7 +150,8 @@
       right: 0;
       position: absolute;
       border-radius: 50%;
-      opacity: 0; }
+      opacity: 0;
+      transition: all .3s ease; }
     .offers_circles .circle:hover {
       cursor: pointer;
       opacity: .8; }
@@ -136,6 +162,7 @@
       visibility: visible; }
     .offers_circles .circle-description {
       display: block;
+      font-family: "RobotoLight", sans-serif;
       font-size: 1.2rem;
       width: 12rem;
       height: 8rem;
@@ -146,25 +173,28 @@
       transform: translateX(-150px);
       visibility: hidden; }
   .offers_circles .ballons {
-    background-image: url("../img/balloons.png");
+    background-image: url("../img/circles/balloons.png");
     background-size: cover;
     background-color: #4eb9f4; }
   .offers_circles .boxes {
-    background-image: url("../img/boxes.png");
+    background-image: url("../img/circles/boxes.png");
     background-size: cover;
     background-color: #6fc125; }
   .offers_circles .flowers {
-    background-image: url("../img/flowers.png");
+    background-image: url("../img/circles/flowers.png");
     background-size: cover;
     background-color: #ff5649; }
   .offers_circles .finger {
-    background-image: url("../img/finger.png");
+    background-image: url("../img/circles/finger.png");
     background-size: cover;
     background-color: #e48f23; }
 
 hr {
-  margin-top: 5rem;
+  margin-top: 50px;
   opacity: .5; }
+
+.work {
+  height: 702px; }
 
 .our-works {
   display: flex;
@@ -177,15 +207,30 @@ hr {
     .our-works .works:last-child {
       margin-bottom: 75px; }
     .our-works .works h3 {
-      font-size: 2.7rem;
-      margin: .5rem 0;
+      font-family: "RobotoLight", sans-serif;
+      font-size: 27px;
+      margin: 5px 0;
       color: #404040;
       font-weight: 300; }
     .our-works .works p {
+      font-family: "RobotoLight", sans-serif;
       font-size: 15px;
       line-height: 22px;
       color: #8b8b8b;
-      font-weight: 300; }
+      font-weight: 300;
+      margin: 10px; }
+
+@font-face {
+  font-family: "RobotoRegular";
+  src: url("../fonts/Roboto-Regular.ttf");
+  src: url("../fonts/Roboto-Regular.otf");
+  src: url("../fonts/Roboto-Regular.woff"); }
+
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/Roboto-Light.ttf");
+  src: url("../fonts/Roboto-Light.otf");
+  src: url("../fonts/Roboto-Light.woff"); }
 
 html {
   font-size: 10px; }
@@ -195,3 +240,83 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 0; }
+
+.footer {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background-image: url("../img/footer-bg.png"); }
+  .footer .sub-menu {
+    margin-top: 4rem; }
+    .footer .sub-menu h4 {
+      font-family: "RobotoLight", sans-serif;
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 22px;
+      color: #aeaeae;
+      margin-bottom: 0; }
+    .footer .sub-menu ul {
+      list-style-type: none;
+      margin-left: 0;
+      padding-left: 0;
+      margin-top: 25px; }
+      .footer .sub-menu ul li {
+        font-family: "RobotoLight", sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 22px;
+        color: #8b8b8b; }
+        .footer .sub-menu ul li a {
+          text-decoration: none;
+          color: #8b8b8b;
+          transition: all .2s ease; }
+          .footer .sub-menu ul li a:hover {
+            color: #fff;
+            text-decoration: underline; }
+  .footer .socials {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 58px; }
+    .footer .socials .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      background-color: #696b6a;
+      border-radius: 50%;
+      font-size: 25px;
+      color: #252825;
+      transition: all .3s ease; }
+      .footer .socials .social a {
+        text-decoration: none;
+        color: #252825;
+        transition: all .3s ease; }
+        .footer .socials .social a:hover {
+          color: #696b6a; }
+      .footer .socials .social:hover {
+        background-color: transparent;
+        cursor: pointer; }
+      .footer .socials .social:hover .fa {
+        color: #696b6a; }
+  .footer .copyright {
+    text-align: center;
+    font-family: "RobotoLight", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #8b8b8b;
+    margin-top: 30px; }
+
+@media screen and (max-width: 1200px) {
+  .work {
+    height: 750px; } }
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 9px; }
+  .work {
+    height: 820px; }
+  .footer .sub-menu h4 {
+    font-size: 20px; } }
