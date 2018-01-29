@@ -155,7 +155,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
       .gallery .artworks a .photo-2 {
         -webkit-transform: rotate(-15deg) translateY(-50px);
         -ms-transform: rotate(-15deg) translateY(-50px);
@@ -164,7 +165,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
       .gallery .artworks a .photo-3 {
         -webkit-transform: rotate(-35deg) translateX(-15px);
         -ms-transform: rotate(-35deg) translateX(-15px);
@@ -173,7 +175,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
       .gallery .artworks a .photo-4 {
         -webkit-transform: rotate(-40deg) translate(30px, -10px);
         -ms-transform: rotate(-40deg) translate(30px, -10px);
@@ -182,7 +185,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
       .gallery .artworks a .photo-5 {
         -webkit-transform: rotate(25deg) translate(20px, -40px);
         -ms-transform: rotate(25deg) translate(20px, -40px);
@@ -191,7 +195,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
       .gallery .artworks a .photo-6 {
         -webkit-transform: rotate(-15deg) translate(-20px, 40px);
         -ms-transform: rotate(-15deg) translate(-20px, 40px);
@@ -200,7 +205,8 @@ body {
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2);
-          position: relative; }
+          position: relative;
+          z-index: 10; }
 
 .footer {
   width: 100%;
