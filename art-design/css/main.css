@@ -33,17 +33,25 @@
       color: #454545;
       opacity: .75;
       margin-left: 3rem;
-      padding: 4px 12px;
+      padding: 0;
+      width: 9rem;
+      height: 3rem;
       -webkit-transition: all .3s ease;
       -o-transition: all .3s ease;
       transition: all .3s ease; }
       .top-line .menu ul li a {
+        display: block;
+        text-align: center;
+        padding: 4px;
+        width: 100%;
+        height: 100%;
         text-decoration: none;
         color: #454545; }
+        .top-line .menu ul li a span {
+          padding-top: 15px; }
       .top-line .menu ul li:hover {
         cursor: pointer;
         background-color: rgba(222, 109, 110, 0.8);
-        padding: 4px 12px;
         opacity: 1;
         color: #fff;
         -webkit-border-radius: 4px;
@@ -53,7 +61,7 @@
       .top-line .menu ul li:active {
         background-color: #de6d6e; }
       .top-line .menu ul li:last-child {
-        padding: 4px 12px;
+        padding: 0;
         background-color: #de6d6e;
         opacity: 1;
         color: #fff;
@@ -85,8 +93,8 @@
   display: block;
   position: absolute;
   width: 100%;
-  height: 60rem;
-  top: 0;
+  height: 6rem;
+  top: -90px;
   z-index: 90; }
   .top-slider .slide {
     position: relative;
@@ -108,7 +116,7 @@
       height: 100%; }
     .top-slider .slide h1 {
       position: absolute;
-      bottom: 12rem;
+      bottom: 8rem;
       font-size: 6rem;
       font-family: "RobotoRegular", sans-serif;
       color: #fff;
@@ -116,7 +124,7 @@
       text-shadow: 0 0 20px #000; }
     .top-slider .slide p {
       position: absolute;
-      bottom: 8rem;
+      bottom: 6rem;
       font-family: "RobotoLight", sans-serif;
       font-weight: 300;
       font-size: 2.5rem;
@@ -305,7 +313,7 @@ html {
   font-size: 10px; }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoRegular", sans-serif;
   font-size: 14px;
   margin: 0;
   padding: 0; }
@@ -410,4 +418,8 @@ body {
   .work {
     height: 820px; }
   .footer .sub-menu h4 {
-    font-size: 20px; } }
+    font-size: 20px; }
+  .top-slider .slide h1 {
+    font-size: 5rem; }
+  .top-slider .slide p {
+    font-size: 2rem; } }
