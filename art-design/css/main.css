@@ -318,6 +318,30 @@ hr {
   src: url("../fonts/Roboto-Italic.otf");
   src: url("../fonts/Roboto-Italic.woff"); }
 
+*::-webkit-input-placeholder {
+  color: #454545;
+  opacity: 1; }
+
+*:-moz-placeholder {
+  color: #454545;
+  opacity: 1; }
+
+*::-moz-placeholder {
+  color: #454545;
+  opacity: 1; }
+
+*:-ms-input-placeholder {
+  color: #454545;
+  opacity: 1; }
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: #666; }
+
+body input:required:valid,
+body textarea:required:valid {
+  color: #666; }
+
 html {
   font-size: 10px; }
 

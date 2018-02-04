@@ -84,9 +84,12 @@
 							</h4>
 						</div>
 						<!-- /.adress -->
-						<form action="mail.php" method="POST">
+						<form action="mail.php" method="POST" id="form">
 							
-							<input type="text">
+							<input type="text" name="name" placeholder="Ваше имя" required><br>
+							<input type="text" name="phone" placeholder="Ваш телефон" required><br>
+							<textarea name="description" id="description-form" placeholder="Ваши пожелания" cols="30" rows="10"></textarea><br>
+							<button class="btn">Отправить</button>
 
 						</form>
 					</div>
