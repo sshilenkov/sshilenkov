@@ -117,22 +117,33 @@ body {
     .top-line .menu ul:hover .login a {
       color: #454545; }
 
-.map {
-  margin: 5rem 5rem 5rem 0; }
-
-.adress {
+.art-design {
   margin-top: 5rem;
   text-align: center;
   font-family: 'Marck Script', cursive;
   font-size: 3rem;
   color: #454545; }
-  .adress h3 {
-    margin-bottom: 1rem; }
-  .adress h2 {
-    margin-top: 1rem; }
+  .art-design h3 {
+    margin-bottom: 1rem;
+    font-weight: 100; }
+  .art-design h2 {
+    margin-top: 1rem;
+    font-weight: 100; }
+
+.map {
+  margin-bottom: 5rem; }
+
+.adress {
+  font-family: "RobotoLight", sans-serif;
+  font-size: 16px;
+  color: #454545;
+  letter-spacing: 1px; }
+  .adress h4 {
+    margin-top: 0;
+    line-height: 30px; }
 
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   height: 260px;
