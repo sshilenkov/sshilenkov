@@ -20,6 +20,7 @@
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
+		<link href="libs/hamburger/hamburger.min.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -34,6 +35,13 @@
 						<img src="img/logo.png" alt="Art-Design">
 					</div>
 					<!-- /.logo -->
+
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+					<!-- /.hamburger -->
 		
 					<div class="menu">
 						<ul>
@@ -43,6 +51,7 @@
 							<li><a href="contact.html"><span>Contact</span></a></li>
 							<li class="login"><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Login</span></a></li>
 						</ul>
+
 					</div>
 					<!-- /.menu -->
 		
@@ -60,10 +69,10 @@
 
 					<!-- Slick Slider -->
 					<div class="top-slider">
-						<div class="slide"><img src="img/slides/slide1.jpg" alt="Slide1" class="slide1"><h1>Оформление праздников</h1><p>Сделаем Ваше торжество уникальным</p></div>
-						<div class="slide"><img src="img/slides/slide2.jpg" alt="Slide2" class="slide2"><h2>Незабываемые подарки</h1><p>Осуществим мечту Ваших близких</p></div>
+						<div class="slide"><img src="img/slides/slide1.jpg" alt="Slide1" class="slide1"><h1>Сделайте свой праздник красивым!</h1></div>
+						<div class="slide"><img src="img/slides/slide2.jpg" alt="Slide2" class="slide2"><h2>Незабываемые подарки</h1><p>Создадим подарки на любой вкус</p></div>
 						<div class="slide"><img src="img/slides/slide3.jpg" alt="Slide3" class="slide3"><h2>Восхитительные шары</h1><p>Подберем неповторимое сочетание цветов и выполним любую надпись</p></div>
-						<div class="slide"><img src="img/slides/slide4.jpg" alt="Slide4" class="slide4"><h2>Потрясающие инсталляции</h1><p>Создадим маленькую сказку на любую тематику</p></div>
+						<div class="slide"><img src="img/slides/slide4.jpg" alt="Slide4" class="slide4"><h2>Потрясающие инсталляции</h1><p>Создадим яркие фотозоны на любую тематику</p></div>
 					</div>
 					<!-- /Slick Slider -->
 
@@ -92,17 +101,22 @@
 							</div>
 							<!-- /.circle -->
 			
-							<div class="circle boxes">
+							<div class="circle weddings">
 								<p class="circle-description">Потрясающие коробочки вызовут восторг у кого угодно! Выполняем любые пожелания при оформлении и подбираем максимально яркое наполнение!</p>
 							</div>
 							<!-- /.circle -->
 			
-							<div class="circle flowers">
+							<div class="circle flower-boxes">
 								<p class="circle-description">Для прекрасной половины человечества предусмотрены необычайно красивые и чувственные композиции из цветов</p>
 							</div>
 							<!-- /.circle -->
 			
-							<div class="circle finger">
+							<div class="circle alco-boxes">
+								<p class="circle-description">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Маленький алфавит, подзаголовок предложения меня точках!</p>
+							</div>
+							<!-- /.circle -->
+
+							<div class="circle choco-boxes">
 								<p class="circle-description">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Маленький алфавит, подзаголовок предложения меня точках!</p>
 							</div>
 							<!-- /.circle -->
@@ -161,7 +175,7 @@
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
@@ -179,7 +193,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -196,7 +210,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -213,7 +227,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -230,7 +244,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-4 col-md-4">
+					<div class="col-4">
 
 						<div class="socials">
 							<div class="social vk">
@@ -277,11 +291,16 @@
 		<script src="../../../../dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="libs/slick/slick.min.js"></script>
 		<script>
-			$(document).ready(function(){
+			$(document).ready(function() {
 				$('.top-slider').slick({
 					arrows: false,
 					dots: false,
 					autoplay: true,
+				});
+
+				$('.hamburger').click(function() {
+					$(this).toggleClass('is-active'),
+					$('.menu').toggleClass('active')
 				});
 			});
 		</script>

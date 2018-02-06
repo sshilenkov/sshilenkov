@@ -308,11 +308,95 @@ body {
 @media screen and (max-width: 992px) {
   html {
     font-size: 9px; }
+  .top-line .menu ul li {
+    height: 3.3rem; }
+  .top-slider .slide h1 {
+    font-size: 3.5rem; }
+  .top-slider .slide p {
+    font-size: 2rem; }
   .work {
     height: 820px; }
   .footer .sub-menu h4 {
-    font-size: 20px; }
-  .top-slider .slide h1 {
-    font-size: 5rem; }
-  .top-slider .slide p {
-    font-size: 2rem; } }
+    font-size: 20px; } }
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 8px; }
+  .top-line:active .menu {
+    -webkit-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px); }
+  .top-line .menu {
+    display: none;
+    width: 100%;
+    margin-right: 0;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease; }
+    .top-line .menu ul li {
+      font-size: 15px; }
+  .top-line .hamburger {
+    display: block; }
+  .top-line .active {
+    display: block; }
+  .top-slider {
+    top: 0; }
+    .top-slider .slide {
+      height: 40rem; }
+      .top-slider .slide h1 {
+        font-size: 3rem;
+        bottom: 3rem; }
+      .top-slider .slide h2 {
+        font-size: 3rem;
+        bottom: 3rem;
+        margin: 16px 0; }
+      .top-slider .slide p {
+        display: none; }
+  .offers h2 {
+    margin-top: 350px;
+    font-size: 3rem; }
+  .circles-block .offers_circles {
+    margin-top: 4rem;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around; }
+    .circles-block .offers_circles .circle {
+      width: 14rem;
+      height: 14rem;
+      margin: 10px auto; }
+      .circles-block .offers_circles .circle-description {
+        font-size: 8.5px;
+        width: 11.5rem;
+        margin-bottom: 3.5rem; }
+  .footer .sub-menu h4 {
+    font-size: 16px; }
+  .footer .sub-menu ul {
+    margin-top: 10px; }
+  .footer .socials {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around; }
+    .footer .socials .social {
+      margin: 5px auto; } }
+
+@media screen and (max-width: 576px) {
+  .top-line .menu ul li {
+    font-size: 13px; }
+  .circles-block .offers_circles {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around; }
+    .circles-block .offers_circles .circle {
+      margin: 10px auto; } }
