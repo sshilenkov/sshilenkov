@@ -373,21 +373,7 @@ body {
     margin-top: 350px;
     font-size: 3rem; }
   .circles-block .offers_circles {
-    margin-top: 4rem;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-align-content: space-around;
-    -ms-flex-line-pack: distribute;
-    align-content: space-around; }
-    .circles-block .offers_circles .circle {
-      width: 14rem;
-      height: 14rem;
-      margin: 10px auto; }
-      .circles-block .offers_circles .circle-description {
-        font-size: 8.5px;
-        width: 11.5rem;
-        margin-bottom: 3.5rem; }
+    margin-top: 4rem; }
   .footer .sub-menu h4 {
     font-size: 16px; }
   .footer .sub-menu ul {

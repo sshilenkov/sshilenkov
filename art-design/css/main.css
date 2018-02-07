@@ -191,17 +191,21 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-top: 8rem; }
   .circles-block .offers_circles .circle {
     position: relative;
     width: 16rem;
     height: 16rem;
+    margin-top: 1rem;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+    border: 1px solid rgba(99, 99, 99, 0.5);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -258,27 +262,60 @@
       transform: translateY(-150px);
       visibility: hidden; }
   .circles-block .offers_circles .ballons {
-    background-image: url("../img/circles/balloons.png");
+    background-image: url("../img/circles/ballons.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-color: #4eb9f4; }
+    .circles-block .offers_circles .ballons .circle-description {
+      margin-bottom: 0;
+      width: 70%;
+      height: 100%;
+      font-size: 1.1rem;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      margin-top: 4rem; }
   .circles-block .offers_circles .weddings {
-    background-image: url("../img/circles/boxes.png");
+    background-image: url("../img/circles/weddings.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-color: #6fc125; }
+    .circles-block .offers_circles .weddings .circle-description {
+      margin-bottom: 0;
+      width: 70%;
+      height: 100%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      margin-top: 4rem; }
   .circles-block .offers_circles .flower-boxes {
-    background-image: url("../img/circles/flowers.png");
+    background-image: url("../img/circles/flowers.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-color: #ff5649; }
-  .circles-block .offers_circles .alco-boxes {
-    background-image: url("../img/circles/finger.png");
+  .circles-block .offers_circles .ballons-figures {
+    background-image: url("../img/circles/ballons-figures.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-color: #e48f23; }
+    .circles-block .offers_circles .ballons-figures .circle-description {
+      margin-bottom: 0;
+      height: 100%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      margin-top: 2.5rem; }
   .circles-block .offers_circles .choco-boxes {
-    background-image: url("../img/circles/finger.png");
+    background-image: url("../img/circles/choco-boxes.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-color: #e48f23; }
+    .circles-block .offers_circles .choco-boxes .circle-description {
+      margin-bottom: 0;
+      height: 100%;
+      font-size: 1.1rem;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      margin-top: 3rem; }
+  .circles-block .offers_circles .alco-boxes {
+    background-image: url("../img/circles/alco-boxes.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-color: #e48f23; }
@@ -523,21 +560,7 @@ body {
     margin-top: 350px;
     font-size: 3rem; }
   .circles-block .offers_circles {
-    margin-top: 4rem;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-align-content: space-around;
-    -ms-flex-line-pack: distribute;
-    align-content: space-around; }
-    .circles-block .offers_circles .circle {
-      width: 14rem;
-      height: 14rem;
-      margin: 10px auto; }
-      .circles-block .offers_circles .circle-description {
-        font-size: 8.5px;
-        width: 11.5rem;
-        margin-bottom: 3.5rem; }
+    margin-top: 4rem; }
   .footer .sub-menu h4 {
     font-size: 16px; }
   .footer .sub-menu ul {
