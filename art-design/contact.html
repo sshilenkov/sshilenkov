@@ -15,11 +15,10 @@
 		<!-- Font-Awesome -->
 		<link href="libs/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
 
-		<!-- Slick-slider -->
-		<link href="libs/slick/slick.css" rel="stylesheet">
-
 		<!-- Custom styles for this template -->
-		<link href="css/contact.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+		<link href="libs/hamburger/hamburger.min.css" rel="stylesheet">
+
 	</head>
 
 	<body>
@@ -34,6 +33,13 @@
 						<img src="img/logo.png" alt="Art-Design">
 					</div>
 					<!-- /.logo -->
+
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+					<!-- /.hamburger -->
 		
 					<div class="menu">
 						<ul>
@@ -43,6 +49,7 @@
 							<li><a href="contact.html"><span>Contact</span></a></li>
 							<li class="login"><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Login</span></a></li>
 						</ul>
+
 					</div>
 					<!-- /.menu -->
 		
@@ -66,7 +73,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col">
+					<div class="col-sm-12 col-md-6">
 						
 						<div class="map">
 							<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a81ddfa61d973560c537191f362af2e90de85470b9ec7a1db689c66437bd6da&amp;width=100%&amp;height=400&amp;lang=ru_UA&amp;scroll=true"></script>
@@ -75,7 +82,7 @@
 					</div>
 					<!-- /.col -->
 
-					<div class="col">
+					<div class="col-sm-12 col-md-6">
 						<div class="adress" itemprop="address" itemscope itemtype="http://sshilenkov.github.io/art-design/contact.html">
 							<h4>
 								Наш адрес: <span itemprop="addressLocality">г.Харцызск</span>, <span itemprop="streetAddress">ул.Краснознаменская, 168</span><br>
@@ -102,10 +109,11 @@
 		<!-- /.contact -->
 
 
+		
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
@@ -123,7 +131,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -140,7 +148,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -157,7 +165,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -174,7 +182,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-4 col-md-4">
+					<div class="col-4">
 
 						<div class="socials">
 							<div class="social vk">
@@ -219,6 +227,15 @@
 		<script>window.jQuery || document.write('<script src="js/jquery-3.2.1.slim.min.js"><\/script>')</script>
 		<script src="../../../../assets/js/vendor/popper.min.js"></script>
 		<script src="../../../../dist/js/bootstrap.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('.hamburger').click(function() {
+					$(this).toggleClass('is-active'),
+					$('.menu').toggleClass('active')
+				});
+			});
+		</script>
 
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>

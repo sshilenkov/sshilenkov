@@ -19,9 +19,10 @@
 		<link href="libs/slick/slick.css" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
-		<link href="css/gallery.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
 		<link href="libs/magnific-popup/magnific-popup.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Pacifico&amp;subset=cyrillic" rel="stylesheet">
+		<link href="libs/hamburger/hamburger.min.css" rel="stylesheet">
 
 	</head>
 
@@ -37,15 +38,23 @@
 						<img src="img/logo.png" alt="Art-Design">
 					</div>
 					<!-- /.logo -->
+
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+					<!-- /.hamburger -->
 		
 					<div class="menu">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="#">About Us</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li class="login"><i class="fa fa-user" aria-hidden="true"></i><a href="#">Login</a></li>
+							<li><a href="index.html"><span>Home</span></a></li>
+							<li><a href="gallery.html"><span>Gallery</span></a></li>
+							<li><a href="#"><span>About Us</span></a></li>
+							<li><a href="contact.html"><span>Contact</span></a></li>
+							<li class="login"><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Login</span></a></li>
 						</ul>
+
 					</div>
 					<!-- /.menu -->
 		
@@ -117,10 +126,11 @@
 		</div>
 		<!-- /.gallery -->
 
+		
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
@@ -138,7 +148,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -155,7 +165,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -172,7 +182,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-2 col-md-2">
+					<div class="col-2">
 						<div class="sub-menu">
 							<h4>Sub Menu</h4>
 							<ul>
@@ -189,7 +199,7 @@
 					</div>
 					<!-- /.col-lg -->
 
-					<div class="col-lg-4 col-md-4">
+					<div class="col-4">
 
 						<div class="socials">
 							<div class="social vk">
@@ -245,6 +255,11 @@
 						enabled:true
 					}
 					// other options
+				});
+
+				$('.hamburger').click(function() {
+					$(this).toggleClass('is-active'),
+					$('.menu').toggleClass('active')
 				});
 			});
 		</script>

@@ -1,4 +1,5 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Marck+Script&subset=cyrillic");
 .top-line {
   position: relative;
   height: 9rem;
@@ -407,7 +408,6 @@ body {
   padding: 0; }
 
 .footer {
-  position: relative;
   width: 100%;
   height: 260px;
   background-image: url("../img/footer-bg.png"); }
@@ -496,6 +496,191 @@ body {
     color: #8b8b8b;
     margin-top: 30px; }
 
+.gallery {
+  margin-top: 100px; }
+  .gallery .artworks {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around; }
+    .gallery .artworks a {
+      outline: none;
+      text-decoration: none;
+      color: #454545;
+      text-align: center;
+      font-family: "Pacifico", cursive; }
+      .gallery .artworks a .artwork {
+        position: relative;
+        width: 30rem;
+        height: 27rem;
+        border: 1px solid rgba(69, 69, 69, 0.5);
+        -webkit-box-shadow: 5px 5px 60px rgba(69, 69, 69, 0.7);
+        box-shadow: 5px 5px 60px rgba(69, 69, 69, 0.7);
+        background-color: #FFF;
+        margin-bottom: 60px;
+        padding: 10px 10px 15px;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition: all .4s ease; }
+        .gallery .artworks a .artwork img {
+          width: 100%; }
+        .gallery .artworks a .artwork p {
+          margin-top: 5px;
+          font-size: 16px; }
+      .gallery .artworks a .photo-1 {
+        -webkit-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+        transform: rotate(20deg); }
+        .gallery .artworks a .photo-1:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+      .gallery .artworks a .photo-2 {
+        -webkit-transform: rotate(-15deg) translateY(-50px);
+        -ms-transform: rotate(-15deg) translateY(-50px);
+        transform: rotate(-15deg) translateY(-50px); }
+        .gallery .artworks a .photo-2:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+      .gallery .artworks a .photo-3 {
+        -webkit-transform: rotate(-35deg) translateX(-15px);
+        -ms-transform: rotate(-35deg) translateX(-15px);
+        transform: rotate(-35deg) translateX(-15px); }
+        .gallery .artworks a .photo-3:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+      .gallery .artworks a .photo-4 {
+        -webkit-transform: rotate(-40deg) translate(30px, -10px);
+        -ms-transform: rotate(-40deg) translate(30px, -10px);
+        transform: rotate(-40deg) translate(30px, -10px); }
+        .gallery .artworks a .photo-4:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+      .gallery .artworks a .photo-5 {
+        -webkit-transform: rotate(25deg) translate(20px, -40px);
+        -ms-transform: rotate(25deg) translate(20px, -40px);
+        transform: rotate(25deg) translate(20px, -40px); }
+        .gallery .artworks a .photo-5:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+      .gallery .artworks a .photo-6 {
+        -webkit-transform: rotate(-15deg) translate(-20px, 40px);
+        -ms-transform: rotate(-15deg) translate(-20px, 40px);
+        transform: rotate(-15deg) translate(-20px, 40px); }
+        .gallery .artworks a .photo-6:hover {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          transform: scale(1.2);
+          position: relative;
+          -webkit-box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          box-shadow: 30px 30px 120px rgba(69, 69, 69, 0.7);
+          z-index: 10; }
+
+.btn {
+  width: 18rem;
+  height: 3rem;
+  border: none;
+  background-color: #de6d6e;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 17px;
+  font-family: "RobotoLight", sans-serif;
+  outline: none;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease; }
+  .btn:hover {
+    cursor: pointer;
+    background-color: rgba(222, 109, 110, 0.9); }
+  .btn:active {
+    background-color: #de6d6e; }
+
+.art-design {
+  margin-top: 5rem;
+  text-align: center;
+  font-family: 'Marck Script', cursive;
+  font-size: 3rem;
+  color: #454545; }
+  .art-design h3 {
+    margin-bottom: 1rem;
+    font-weight: 100; }
+  .art-design h2 {
+    margin-top: 1rem;
+    font-weight: 100; }
+
+.map {
+  margin-bottom: 5rem; }
+
+.contact {
+  margin-bottom: 50px; }
+
+.adress {
+  font-family: "RobotoLight", sans-serif;
+  font-size: 16px;
+  color: #454545;
+  letter-spacing: 1px; }
+  .adress h4 {
+    margin-top: 0;
+    line-height: 30px; }
+
+#form input {
+  font-family: "RobotoLight", sans-serif;
+  width: 50%;
+  height: 3rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  outline: none; }
+
+#form textarea {
+  font-family: "RobotoLight", sans-serif;
+  width: 100%;
+  height: 17rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-top: 2px solid rgba(69, 69, 69, 0.5);
+  border-left: 2px solid rgba(69, 69, 69, 0.5);
+  border-bottom: 2px solid rgba(200, 234, 244, 0.5);
+  border-right: 2px solid rgba(200, 234, 244, 0.5);
+  outline: none; }
+
 @media screen and (max-width: 1200px) {
   .work {
     height: 750px; } }
@@ -573,7 +758,35 @@ body {
     -ms-flex-line-pack: distribute;
     align-content: space-around; }
     .footer .socials .social {
-      margin: 5px auto; } }
+      margin: 5px auto; }
+  .gallery .artworks a .artwork {
+    margin-bottom: 0; }
+    .gallery .artworks a .artwork p {
+      font-size: 14px; }
+  .gallery .artworks a .photo-1 {
+    -webkit-transform: rotate(20deg) translate(-20px, -50px);
+    -ms-transform: rotate(20deg) translate(-20px, -50px);
+    transform: rotate(20deg) translate(-20px, -50px); }
+  .gallery .artworks a .photo-2 {
+    -webkit-transform: rotate(-15deg) translateY(-50px);
+    -ms-transform: rotate(-15deg) translateY(-50px);
+    transform: rotate(-15deg) translateY(-50px); }
+  .gallery .artworks a .photo-3 {
+    -webkit-transform: rotate(-35deg) translateX(0px) translateY(-50px);
+    -ms-transform: rotate(-35deg) translateX(0px) translateY(-50px);
+    transform: rotate(-35deg) translateX(0px) translateY(-50px); }
+  .gallery .artworks a .photo-4 {
+    -webkit-transform: rotate(-40deg) translate(0px, 0px);
+    -ms-transform: rotate(-40deg) translate(0px, 0px);
+    transform: rotate(-40deg) translate(0px, 0px); }
+  .gallery .artworks a .photo-5 {
+    -webkit-transform: rotate(25deg) translate(-20px, -40px);
+    -ms-transform: rotate(25deg) translate(-20px, -40px);
+    transform: rotate(25deg) translate(-20px, -40px); }
+  .gallery .artworks a .photo-6 {
+    -webkit-transform: rotate(-15deg) translate(0px, -40px);
+    -ms-transform: rotate(-15deg) translate(0px, -40px);
+    transform: rotate(-15deg) translate(0px, -40px); } }
 
 @media screen and (max-width: 576px) {
   .top-line .hamburger:active .menu {
