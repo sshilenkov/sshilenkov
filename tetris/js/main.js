@@ -213,12 +213,26 @@ const figuresList = [
   ]
 ];
 
+const figureColor = [
+  '#FFEB3B',    //yellow
+  '#f44336',    //red
+  '#4CAF50',    //green
+  '#00BCD4',    //cyan
+  '#00BCD4',    //lime
+  '#00BCD4',    //purple
+  '#00BCD4',    //brown
+]
+
 // Выбор случайного числа от 0 до 6
 const getRandomFigure = function() {
   return Math.floor(Math.random() * 7);
 }
 
+// Переменная, в которой хранятся блоки фигуры на текущий момент
 let figure = [];
+// Переменная, в которой хранятся блоки для следующего положения фигуры
+let newFigure = [];
+// Переменная, в которой хранится номер текущей фигуры
 let currentFigure;
 
 // Создаем фигуру
@@ -245,45 +259,11 @@ function createFigure(x, y) {
   });
 }
 
-createFigure(5, 10);
+createFigure(5, 5);
+let canMove = true;
 
-// Двигаем фигуру вниз
-let canMoveByX = true;
-let canMoveByY = true;
-
-// Проверяем пространство, куда должна переместиться фигура
-function isFreeX(x) {
-  figure.forEach(el => {
-    const coordX = +el.getAttribute('data-x');
-    const coordY = +el.getAttribute('data-y');
-    const newSection = sectionsArr.find(elem => {
-      return +elem.getAttribute('data-x') == (coordX + x) && +elem.getAttribute('data-y') == coordY;
-    });
-
-    if (newSection == undefined || newSection.classList.contains('tetris__block--static')) {
-      canMoveByX = false;
-      return;
-    }
-  });
-}
-
-function isFreeY() {
-  figure.forEach(el => {
-    const coordX = +el.getAttribute('data-x');
-    const coordY = +el.getAttribute('data-y');
-    const newSection = sectionsArr.find(elem => {
-      return +elem.getAttribute('data-x') == coordX && +elem.getAttribute('data-y') == (coordY + 1);
-    });
-
-    if (+coordY > 23 || newSection.classList.contains('tetris__block--static')) {
-      canMoveByY = false;
-      return;
-    }
-  });
-}
-
-// Убираем старую фигуру и создаем новую
-function newFigure(x, y) {
+// Проверяем новую позицию
+function newPosition(x, y) {
   figure.forEach( (el, i) => {
     const coordX = +el.getAttribute('data-x');
     const coordY = +el.getAttribute('data-y');
@@ -291,20 +271,75 @@ function newFigure(x, y) {
       return +elem.getAttribute('data-x') == (coordX + x) && +elem.getAttribute('data-y') == (coordY + y);
     });
 
-    el.classList.remove('tetris__block');
-    figure.splice(i, 1, newBlock);
+    newFigure.splice(i, 1, newBlock);
   });
+  newFigure.forEach(el => {
+    if (el == undefined || el.classList.contains('tetris__block--static')) {
+      canMove = false;
+    }
+  });
+}
+
+function moveFigure() {
+  figure.forEach(el => {
+    el.classList.remove('tetris__block');
+  });
+  figure.length = 0;
+  figure = newFigure.slice();
+  newFigure.length = 0;
   figure.forEach(el => {
     el.classList.add('tetris__block');
   });
 }
 
+// Проверяем линии на заполненность
+function isLinesFull() {
+  for (let y = 5; y < 25; y++) {  //проверяем поочередно все линии видимого поля
+    let fullLine = [];
+    for (let x = 1; x < 11; x++) {  //проверяем каждую ячейку текущей линии
+      sectionsArr.forEach((element) => {  //проходимся по всему полю
+        const coordX = +element.getAttribute('data-x');
+        const coordY = +element.getAttribute('data-y');
+        if (coordX == x && coordY == y && element.classList.contains('tetris__block--static')) {  //если в текущей линии текущая ячейка содержит указанный класс
+          fullLine.push(element);   //добавляем эту ячейку в переменную
+        }
+      });
+    }
+    if (fullLine.length == 10) {  //если текущая линия заполнена
+      fullLine.forEach(el => {
+        el.classList.remove('tetris__block','tetris__block--static'); //стираем заполненную линию на поле
+      });
+      let sectionsAbove = [];
+      for (let above = 5; above <= y; above++) {  //проверяем ячейки над стертой линией
+        sectionsArr.forEach((element) => {  //проходимся по всему полю
+          let coordY = +element.getAttribute('data-y');
+          if (coordY == above && element.classList.contains('tetris__block--static')) {  //если над стертой линией есть заполненные ячейки - добавляем их в отдельный массив
+            sectionsAbove.push(element);
+          }
+        });
+      }
+      sectionsAbove.reverse();  //делаем реверс массива с ячейками над стертой линией, чтобы смещение вниз начиналось с нижних ячеек
+      sectionsAbove.forEach(el => {   //проходим по всем ячейкам над стертой линией и смещаем их вниз
+        el.classList.remove('tetris__block','tetris__block--static');
+        let coordX = +el.getAttribute('data-x');
+        let coordY = +el.getAttribute('data-y');
+        let sectionUnder = sectionsArr.find(elem => {
+          if (elem.getAttribute('data-x') == coordX && elem.getAttribute('data-y') == (coordY + 1)) {
+            return elem;
+          }
+        });
+        sectionUnder.classList.add('tetris__block','tetris__block--static');
+      });
+    }
+  }
+}
+
 let currentState = 0;
 // Вращение фигуры
 function rotateFigure() {
-  const stateVariants = figuresList[currentFigure][3].length;
-  const figureNewState = figuresList[currentFigure][3][currentState];
-  if (stateVariants) {
+  const stateVariants = figuresList[currentFigure][3].length;   //кол-во вариантов вращения текущей фигуры
+  const figureNewState = figuresList[currentFigure][3][currentState];   //новое положение фигуры
+  if (stateVariants) {  //если фигуру можно повернуть - поворачиваем
     figure.forEach( (el, i) => {
       const coordX = +el.getAttribute('data-x');
       const coordY = +el.getAttribute('data-y');
@@ -314,62 +349,88 @@ function rotateFigure() {
         return +elem.getAttribute('data-x') == (coordX + newCoordX) && +elem.getAttribute('data-y') == (coordY + newCoordY);
       });
 
-      el.classList.remove('tetris__block');
-      figure.splice(i, 1, newBlock);
+      newFigure.splice(i, 1, newBlock);
     });
-    figure.forEach(el => {
-      el.classList.add('tetris__block');
+    newFigure.forEach(el => {
+      if (el == undefined || el.classList.contains('tetris__block--static')) {
+        canMove = false;
+      }
     });
-    ++currentState;
+    if (canMove) {
+      moveFigure();
+      ++currentState;
+    }
+    canMove = true;
     if (currentState == stateVariants) {
       currentState = 0;
     }
   }
 }
 
+// Если препятствий нет - двигаем фигуру вниз
 function moveDown() {
-  // Проверяем на наличие препятствий пространство под фигурой
-  isFreeY();
+  newPosition(0, 1);
 
-  // Если препятствий нет - двигаем фигуру вниз
-  if (canMoveByY) {
-    newFigure(0, 1);
+  if (canMove) {
+    moveFigure();
   } else {
     figure.forEach(el => {
       el.classList.add('tetris__block--static');
     });
-    figure = [];
-    createFigure(5, 10);
-    canMoveByY = true;
+    figure.length = 0;
+    isLinesFull();
+    createFigure(5, 5);
+    canMove = true;
     currentState = 0;
+    isGameOver();
   }
 }
 
 setInterval(moveDown, 500);
 
 // Обрабатываем нажатие стрелок
-function moveFigure(e) {
+function relocateFigure(e) {
   if (e.code == 'ArrowLeft') {
-    isFreeX(-1);
-    canMoveByX && newFigure(-1, 0);
-    canMoveByX = true;
+    newPosition(-1, 0);
+    canMove && moveFigure(-1, 0);
+    canMove = true;
   }
   if (e.code == 'ArrowDown') {
-    isFreeY();
-    canMoveByY && newFigure(0, 1);
-    canMoveByY = true;
+    newPosition(0, 1);
+    canMove && moveFigure(0, 1);
+    canMove = true;
   }
   if (e.code == 'ArrowRight') {
-    isFreeX(1);
-    canMoveByX && newFigure(1, 0);
-    canMoveByX = true;
+    newPosition(1, 0);
+    canMove && moveFigure(1, 0);
+    canMove = true;
   }
   if (e.code == 'ArrowUp') {
-    isFreeX(-1);
-    isFreeX(1);
-    canMoveByX && rotateFigure();
-    canMoveByX = true;
+    newPosition(0, 0);
+    canMove && rotateFigure();
+    canMove = true;
   }
 }
+//Слушаем нажатия стрелок
+addEventListener('keydown', relocateFigure);
 
-addEventListener('keydown', moveFigure);
+//Логика завершения игры
+function isGameOver() {
+  //верхняя линия, достигнув которую игра заканчивается ...
+  let finishLine = [];
+  //... добавляем в нее ячейки
+  sectionsArr.forEach(el => {
+    (el.getAttribute('data-y') == 5) && finishLine.push(el);
+  });
+  //проверяем верхнюю линию на наличие в ней упавших фигур. Если находим - игра заканчивается
+  finishLine.forEach(el => {
+    if (el.classList.contains('tetris__block--static')) {
+      //выводим сообщение для игрока
+      alert('Вы проиграли... Но не расстраивайтесь! Попробуйте снова ☺');
+      //очищаем игровое поле
+      sectionsArr.forEach(elem => {
+        elem.classList.remove('tetris__block', 'tetris__block--static');
+      });
+    }
+  });
+}
