@@ -27,7 +27,7 @@ body {
   line-height: 1; }
 
 ol, ul {
-  list-style: none; }
+  list-style: bullet; }
 
 blockquote, q {
   quotes: none; }
@@ -40,6 +40,33 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+b {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+p {
+  margin-bottom: 15px;
+  text-indent: 20px;
+}
+
+ul {
+  margin-bottom: 15px;
+  padding-left: 50px;
+}
+
+.content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 
 .header {
   position: absolute;
@@ -95,11 +122,6 @@ table {
     content: ''; }
 
 .description__content {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   max-width: 80%;
   margin: 0 auto;
   color: #000;
