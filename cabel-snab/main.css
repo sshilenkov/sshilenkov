@@ -117,19 +117,17 @@ body {
     position: relative;
     flex: 1 1 40%;
     overflow: hidden;
-    background-color: #227abd;
-    opacity: .7; }
+    background-color: #227abd; }
     .description__right::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 0;
       display: block;
-      width: 500px;
-      height: 500px;
+      width: 700px;
+      height: 700px;
       border-radius: 50%;
       background-color: #fff;
-      transform: rotate(45deg) translateY(-50%); }
 
   .footer {
     display: -webkit-flex;
@@ -137,7 +135,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
-    background-image: url("./footer.png"); }
+    background-color: #227abd;
+    text-shadow: 1px 1px 8px rgba(1, 1, 1, 0.55); }
 
   .footer__item {
     flex: 1 1 25%;
