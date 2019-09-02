@@ -1,12 +1,13 @@
 class Person extends Component {
     constructor(name) {
         super();
-        this.name = name;
+        this.name = name;// Не используется
         this._happiness = 0;
         this._valueElement = document.querySelector(`.column__value-name`);
         this._iconElement = document.querySelector(`.column__value-icon`);
     }
-
+    // Три метода ниже можно объединить в один - cheerUp(), например. Нужно использовать
+    // префиксную форму инкремента или += 1, чтобы код правильно отрабатывал.
     hasCat() {
         return this._happiness++;
     }
@@ -26,8 +27,8 @@ class Person extends Component {
 
         return fetch(url)
             .then(res => res.json())
-            .then((res) => {
-              console.log(this._happiness);
+            .then((res) => { // Не нужно дважды использовать одно имя для названия ответов разных промисов
+              console.log(this._happiness); // Оставлять плохая практика
                 if (res.main.temp - 273 > 15) {
                     return this._happiness++;
                 }

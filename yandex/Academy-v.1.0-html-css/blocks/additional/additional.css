@@ -4,7 +4,8 @@
     width: 100%;
     position: relative;
 }
-
+/* Файловая структура БЭМ не соблюдена, все стили элемента должныы находиться в
+собственной директории и файле */
 .additional__container {
     margin: 0 auto;
     display: flex;
@@ -165,7 +166,7 @@
         margin: 8px 0;
         width: 284px;
         height: 330px;
-        
+
     }
     .additional__item-bg {
         position: absolute;

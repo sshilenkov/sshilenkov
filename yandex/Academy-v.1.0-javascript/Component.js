@@ -17,16 +17,16 @@ class Component {
 
 	render() {
 		this._element = Component.createElement(this.template);
-		this.setEventListener();
+		this.setEventListener(); // Усложнение кода
 		return this._element;
 	}
 	removeItem() {
-		this.removeEventListener();
+		this.removeEventListener(); // Усложнение кода
 		this._element.remove();
 		this._element = null;
 	}
 
-	setEventListener() {}
-	removeEventListener() {}
+	setEventListener() {}		//Бесполезный метод
+	removeEventListener() {}//Бесполезный метод
 
 }
