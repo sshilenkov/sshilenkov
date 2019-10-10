@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>iframe</title>
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .poster {
+        display: flex;
+        flex-direction: column;
+        width: 1280px;
+        height: 720px;
+        margin: 0 auto;
+        padding: 45px 60px 35px 100px;
+        font-family: "bureausans";
+      }
+
+      .poster__body {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 auto;
+        padding-bottom: 20px;
+      }
+
+      .poster__title {
+        margin: 0;
+        color: #e10000;
+        font-size: 140px;
+        line-height: 1;
+      }
+
+      .poster__content {
+        display: flex;
+        justify-content: space-between;
+        font-size: 35px;
+        line-height: 40px;
+      }
+
+      .poster__main-text {
+        flex: 0 1 540px;
+      }
+
+      .poster__additional-text {
+        flex: 0 1 250px;
+      }
+
+      .poster__footer {
+        display: flex;
+        padding-top: 21px;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .poster__name {
+        position: relative;
+        flex: 0 1 260px;
+        margin-right: 35px;
+      }
+
+      .poster__name-text::after {
+        content: '✎';
+        margin-left: 5px;
+        opacity: .2;
+      }
+
+      .poster__name-text:hover {
+        cursor: pointer;
+      }
+
+      .poster__site {
+        position: relative;
+        color: #e10000;
+      }
+
+      .poster__site-text::after {
+        content: '✎';
+        margin-left: 5px;
+        color: #000;
+        opacity: .2;
+      }
+
+      .poster__site-text:hover {
+        /* border-bottom: 2px solid #e10000; */
+        cursor: pointer;
+      }
+
+      .poster__name-input,
+      .poster__site-input {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="poster">
+      <div class="poster__body">
+        <h2 class="poster__title">Внеплановая спецоценка</h2>
+        <div class="poster__content">
+          <div class="poster__main-text">Одно предложение с описанием задачи или полезного действия презентации</div>
+          <div class="poster__additional-text">3—4 слова, если зачем-то они нужны</div>
+        </div>
+      </div>
+      <div class="poster__footer">
+        <div class="poster__name">
+          <div class="poster__name-text" id="nameField" onclick="onClickName();">Охрана труда</div>
+          <input type="text" id="nameInput" class="poster__name-input"/>
+        </div>
+
+        <div class="poster__site" id="site">
+          <div class="poster__site-text" id="siteField" onclick="onClickSite();">e.otruda.ru</div>
+          <input type="text" id="siteInput" class="poster__site-input"/>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function onClickName() {
+        var nameField = document.getElementById('nameField');
+        var nameInput = document.getElementById('nameInput');
+        nameField.style.display = 'none';
+        nameInput.style.display = 'block';
+        nameInput.focus();
+      }
+
+      nameInput.onblur = function() {
+        if (!nameInput.value) {
+          nameField.style.display = 'block';
+          nameInput.style.display = 'none';
+        } else {
+          nameField.style.display = 'block';
+          nameInput.style.display = 'none';
+          nameField.textContent = nameInput.value;
+        }
+      }
+
+      function onClickSite() {
+        var siteField = document.getElementById('siteField');
+        var siteInput = document.getElementById('siteInput');
+        siteField.style.display = 'none';
+        siteInput.style.display = 'block';
+        siteInput.focus();
+      }
+
+      siteInput.onblur = function() {
+        if (!siteInput.value) {
+          siteField.style.display = 'block';
+          siteInput.style.display = 'none';
+        } else {
+          siteField.style.display = 'block';
+          siteInput.style.display = 'none';
+          siteField.textContent = siteInput.value;
+        }
+      }
+    </script>
+  </body>
+</html>
