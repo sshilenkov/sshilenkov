@@ -431,7 +431,6 @@
       /* Print styles */
       @media print {
         @page {
-          size: A4;
           margin: 0 20px;
         }
 
@@ -447,6 +446,7 @@
         .can-not {
           height: 297mm;
           margin-right: 0;
+          padding: 23px 40px 18px 15px;
         }
 
         .can-not__head {
@@ -467,6 +467,10 @@
           display: none;
         }
 
+        .can-not__logo {
+          height: 14px;
+        }
+
         .can-not__body {
           flex: 1 0 433px;
         }
@@ -478,6 +482,10 @@
 
         .can-not__content {
           font-size: 28px;
+        }
+
+        .can-not__col {
+          margin-bottom: 30px;
         }
 
         .can-not__possible {
