@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>poster</title>
+    <link rel="stylesheet" type="text/css" href="../main.css"></link>
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        font-family: 'Bureausans';
+      }
+
+      .can-not-3 {
+        display: flex;
+        justify-content: space-between;
+        min-height: 49.05vw;
+        margin-right: 1.521vw;
+        padding: 2.4335vw 1.521vw 1.749vw 1.1407vw;
+        background-color: #F0F0F0;
+      }
+
+      .can-not-3__footer {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -ms-align-items: flex-end;
+        align-items: flex-end;
+        justify-content: space-between;
+        min-height: 3.1vw;
+      }
+
+      .can-not-3__edit {
+        flex: 0 1 30vw;
+        -ms-align-self: flex-start;
+        align-self: flex-start;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        height: 3.2vw;
+      }
+
+      .can-not-3__name,
+      .can-not-3__memo {
+        position: relative;
+        flex: 0 0 13.308vw;
+        display: flex;
+        align-items: flex-end;
+        font-family: "bureausans";
+        font-size: 1.3689vw;
+        line-height: 1.11111;
+      }
+
+      .can-not-3__name {
+        margin-right: 3vw;
+      }
+
+      .can-not-3__name-text,
+      .can-not-3__memo-text {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 0.3071vw;
+        word-break: break-all;
+      }
+
+      .can-not-3__name-text::after,
+      .can-not-3__memo-text::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        border-bottom: 1px dashed #bdbdbd;
+      }
+
+      .can-not-3__name-text:hover,
+      .can-not-3__memo-text:hover {
+        cursor: pointer;
+      }
+
+      .can-not-3__name-input,
+      .can-not-3__memo-input {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-size: 1.3689vw;
+        font-family: "bureausans";
+        line-height: 1.11111;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        background-color: transparent;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      .can-not-3__logo {
+        flex: 1 1 auto;
+        height: 1.065vw;
+        background-image: url(logo.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+        margin-bottom: 0.4vw;
+      }
+
+      .can-not-3__body {
+        flex: 0 1 141vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0.4vw;
+      }
+
+      .can-not-3__title {
+        flex: 1 1 69vw;
+        margin: 0 1.521vw 0 0;
+        font-size: 3.80228vw;
+        line-height: 1;
+      }
+
+      .can-not-3__content {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        font-size: 1.52091vw;
+        line-height: 1.1;
+      }
+
+      .can-not-3__col {
+        flex: 0 1 30.708vw;
+      }
+
+      .can-not-3__col:first-child {
+        margin-right: 1.521vw;
+      }
+
+      .can-not-3__caption {
+        margin: 0;
+        font-size: 2.12928vw;
+      }
+
+      .can-not-3__possible {
+        color: #17A16D;
+      }
+
+      .can-not-3__impossible {
+        color: #e10000;
+      }
+
+      .can-not-3__paragraph {
+        margin: 0;
+      }
+
+      .can-not-3__paragraph:not(:last-child) {
+        margin-bottom: 1.673vw;
+      }
+
+      /* Different logos */
+      .poster--accounting .can-not-3__logo {
+        background-image: url(../../svg/accounting.svg);
+      }
+
+      .poster--culture .can-not-3__logo {
+        background-image: url(../../svg/culture.svg);
+      }
+
+      .poster--digital .can-not-3__logo {
+        background-image: url(../../svg/digital.svg);
+      }
+
+      .poster--education .can-not-3__logo {
+        background-image: url(../../svg/education.svg);
+      }
+
+      .poster--finance .can-not-3__logo {
+        background-image: url(../../svg/finance.svg);
+      }
+
+      .poster--govfin .can-not-3__logo {
+        background-image: url(../../svg/govfin.svg);
+      }
+
+      .poster--govorder .can-not-3__logo {
+        background-image: url(../../svg/govorder.svg);
+      }
+
+      .poster--law .can-not-3__logo {
+        background-image: url(../../svg/law.svg);
+      }
+
+      .poster--management .can-not-3__logo {
+        background-image: url(../../svg/management.svg);
+      }
+
+      .poster--medicine .can-not-3__logo {
+        background-image: url(../../svg/medicine.svg);
+      }
+
+      .poster--personnel .can-not-3__logo {
+        background-image: url(../../svg/personnel.svg);
+      }
+
+      .poster--security .can-not-3__logo {
+        background-image: url(../../svg/security.svg);
+      }
+
+      /* light poster styles */
+
+      .poster-light.can-not-3{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-light .can-not-3__name-text::after,
+      .poster-light .can-not-3__memo-text::after {
+        border-color: #000;
+      }
+
+      .poster-light .can-not-3__name-input,
+      .poster-light .can-not-3__memo-input {
+        border-color: #000;
+        color: #000;
+        background-color: transparent;
+      }
+
+      .poster-light ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #000;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-light :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #000;
+      }
+
+      .poster-light ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #000;
+      }
+
+      .poster-light .can-not-3__caption {
+        color: #000;
+      }
+
+      .poster-light.poster--accounting .can-not-3__logo {
+        background-image: url(../../svg/black/accounting.svg);
+      }
+
+      .poster-light.poster--culture .can-not-3__logo {
+        background-image: url(../../svg/black/culture.svg);
+      }
+
+      .poster-light.poster--digital .can-not-3__logo {
+        background-image: url(../../svg/black/digital.svg);
+      }
+
+      .poster-light.poster--education .can-not-3__logo {
+        background-image: url(../../svg/black/education.svg);
+      }
+
+      .poster-light.poster--finance .can-not-3__logo {
+        background-image: url(../../svg/black/finance.svg);
+      }
+
+      .poster-light.poster--govfin .can-not-3__logo {
+        background-image: url(../../svg/black/govfin.svg);
+      }
+
+      .poster-light.poster--govorder .can-not-3__logo {
+        background-image: url(../../svg/black/govorder.svg);
+      }
+
+      .poster-light.poster--law .can-not-3__logo {
+        background-image: url(../../svg/black/law.svg);
+      }
+
+      .poster-light.poster--management .can-not-3__logo {
+        background-image: url(../../svg/black/management.svg);
+      }
+
+      .poster-light.poster--medicine .can-not-3__logo {
+        background-image: url(../../svg/black/medicine.svg);
+      }
+
+      .poster-light.poster--personnel .can-not-3__logo {
+        background-image: url(../../svg/black/personnel.svg);
+      }
+
+      .poster-light.poster--security .can-not-3__logo {
+        background-image: url(../../svg/black/security.svg);
+      }
+
+      /* dark poster styles */
+
+      .poster-dark.can-not-3{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-dark .can-not-3__name,
+      .poster-dark .can-not-3__memo {
+        color: #fff;
+        border-color: #fff;
+        background-color: transparent;
+      }
+
+      .poster-dark .can-not-3__name-text::after,
+      .poster-dark .can-not-3__memo-text::after {
+        border-color: #fff;
+      }
+
+      .poster-dark .can-not-3__name-input,
+      .poster-dark .can-not-3__memo-input {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .poster-dark ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-dark :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+      }
+
+      .poster-dark ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #fff;
+      }
+
+      .poster-dark .logo-white {
+        display: inline;
+      }
+
+      .poster-dark .can-not-3__title {
+        color: #fff;
+      }
+
+      .poster-dark .can-not-3__content {
+        color: #fff;
+      }
+
+      .poster-dark .can-not-3__caption {
+        color: #fff;
+      }
+
+      .poster-dark.poster--accounting .can-not-3__logo {
+        background-image: url(../../svg/white/accounting.svg);
+      }
+
+      .poster-dark.poster--culture .can-not-3__logo {
+        background-image: url(../../svg/white/culture.svg);
+      }
+
+      .poster-dark.poster--digital .can-not-3__logo {
+        background-image: url(../../svg/white/digital.svg);
+      }
+
+      .poster-dark.poster--education .can-not-3__logo {
+        background-image: url(../../svg/white/education.svg);
+      }
+
+      .poster-dark.poster--finance .can-not-3__logo {
+        background-image: url(../../svg/white/finance.svg);
+      }
+
+      .poster-dark.poster--govfin .can-not-3__logo {
+        background-image: url(../../svg/white/govfin.svg);
+      }
+
+      .poster-dark.poster--govorder .can-not-3__logo {
+        background-image: url(../../svg/white/govorder.svg);
+      }
+
+      .poster-dark.poster--law .can-not-3__logo {
+        background-image: url(../../svg/white/law.svg);
+      }
+
+      .poster-dark.poster--management .can-not-3__logo {
+        background-image: url(../../svg/white/management.svg);
+      }
+
+      .poster-dark.poster--medicine .can-not-3__logo {
+        background-image: url(../../svg/white/medicine.svg);
+      }
+
+      .poster-dark.poster--personnel .can-not-3__logo {
+        background-image: url(../../svg/white/personnel.svg);
+      }
+
+      .poster-dark.poster--security .can-not-3__logo {
+        background-image: url(../../svg/white/security.svg);
+      }
+
+      /* Print styles */
+      @media print {
+        @page {
+          size: landscape;
+          margin: 0 20px;
+        }
+
+        .sidebar {
+          display: none;
+        }
+
+        .can-not-3 {
+          height: 760px;
+          margin-right: 0;
+        }
+
+        .can-not-3__name-text,
+        .can-not-3__memo-text {
+          color: #000;
+        }
+
+        .can-not-3__name-text::after,
+        .can-not-3__memo-text::after {
+          display: none;
+        }
+
+        .can-not-3__title {
+          color: #000 !important;
+        }
+
+        .can-not-3__possible {
+          color: #17A16D !important;
+        }
+
+        .can-not-3__impossible {
+          color: #e10000 !important;
+        }
+
+        .can-not-3__col:first-child {
+          margin-right: 40px;
+        }
+
+        .can-not-3__paragraph {
+          color: #000 !important;
+        }
+
+        textarea {
+          display: none !important;
+        }
+
+        .can-not-3__logo {
+          -webkit-print-color-adjust:exact;
+        }
+
+        .poster--accounting .can-not-3__logo {
+          background-image: url(../../svg/accounting.svg) !important;
+        }
+
+        .poster--culture .can-not-3__logo {
+          background-image: url(../../svg/culture.svg) !important;
+        }
+
+        .poster--digital .can-not-3__logo {
+          background-image: url(../../svg/digital.svg) !important;
+        }
+
+        .poster--education .can-not-3__logo {
+          background-image: url(../../svg/education.svg) !important;
+        }
+
+        .poster--finance .can-not-3__logo {
+          background-image: url(../../svg/finance.svg) !important;
+        }
+
+        .poster--govfin .can-not-3__logo {
+          background-image: url(../../svg/govfin.svg) !important;
+        }
+
+        .poster--govorder .can-not-3__logo {
+          background-image: url(../../svg/govorder.svg) !important;
+        }
+
+        .poster--law .can-not-3__logo {
+          background-image: url(../../svg/law.svg) !important;
+        }
+
+        .poster--management .can-not-3__logo {
+          background-image: url(../../svg/management.svg) !important;
+        }
+
+        .poster--medicine .can-not-3__logo {
+          background-image: url(../../svg/medicine.svg) !important;
+        }
+
+        .poster--personnel .can-not-3__logo {
+          background-image: url(../../svg/personnel.svg) !important;
+        }
+
+        .poster--security .can-not-3__logo {
+          background-image: url(../../svg/security.svg) !important;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="can-not-3">
+        <h2 class="can-not-3__title">Что делать, если вас укусила змея</h2>
+        <div class="can-not-3__body">
+          <div class="can-not-3__content">
+            <div class="can-not-3__col">
+              <h3 class="can-not-3__caption can-not-3__impossible">Нелья</h3>
+              <p class="can-not-3__paragraph">
+                Накладывать на рану жгут, это может привести к ампутации
+              </p>
+              <p class="can-not-3__paragraph">
+                Прижигать и давить на рану, яд попадет глубже на несколько сантиметров. Пить алкоголь и кофе, они замедляют выведение яда из организма
+              </p>
+              <p class="can-not-3__paragraph">
+                Накладывать на рану жгут, это может привести к ампутации. Прижигать и давить на рану, яд попадет глубже на несколько сантиметров
+              </p>
+              <p class="can-not-3__paragraph">
+                Прижигать и давить на рану, яд попадет глубже на несколько сантиметров. Пить алкоголь и кофе, они замедляют выведение яда из организма
+              </p>
+            </div>
+            <div class="can-not-3__col">
+              <h3 class="can-not-3__caption can-not-3__possible">Можно</h3>
+              <p class="can-not-3__paragraph">
+                Снять с пострадавшей части тела всю одежду, она может сдавливать при отеке
+              </p>
+              <p class="can-not-3__paragraph">
+                Пить большое количество воды, она поможет быстрее вывести яд из организма
+              </p>
+              <p class="can-not-3__paragraph">
+                Как можно скорее обратитесь к врачу. Пить большое количество воды, она поможет быстрее вывести яд из организма
+              </p>
+              <p class="can-not-3__paragraph">
+                Снять с пострадавшей части тела всю одежду, она может сдавливать при отеке
+              </p>
+              <p class="can-not-3__paragraph">
+                Пить большое количество воды, она поможет быстрее вывести яд из организма
+              </p>
+            </div>
+          </div>
+          <div class="can-not-3__footer">
+          <div class="can-not-3__edit">
+            <div class="can-not-3__name">
+              <div class="can-not-3__name-text" id="nameField" onclick="onClickName();"></div>
+              <textarea name="" id="nameInput" class="can-not-3__name-input" placeholder="Название компании или учреждения ✎" maxlength="30"></textarea>
+            </div>
+            <div class="can-not-3__memo">
+              <div class="can-not-3__memo-text" id="memoField" onclick="onClickMemo();"></div>
+              <textarea name="" id="memoInput" class="can-not-3__memo-input" placeholder="Памятка кадровику ✎" maxlength="30"></textarea>
+            </div>
+          </div>
+          <div class="can-not-3__logo">
+          </div>
+            </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar__icon"></div>
+        <div class="sidebar__text">
+          Впишите название и адрес своего учреждения в плакат, распечатайте его и используйте в работе
+        </div>
+        <div class="sidebar__actions">
+          <button class="sidebar__download">Скачать</button>
+          <button class="sidebar__print"></button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+
+    <script>
+      // input logic
+      var nameField = document.getElementById('nameField');
+      var nameInput = document.getElementById('nameInput');
+
+      function inputText(input, field) {
+        if (input.value) {
+          field.style.display = 'block';
+          input.style.display = 'none';
+          field.textContent = input.value;
+        }
+      }
+
+      function onClickName() {
+        nameField.style.display = 'none';
+        nameInput.style.display = 'block';
+        nameInput.focus();
+      }
+
+      nameInput.onfocus = function () {
+        nameInput.setAttribute('placeholder', 'Название компании или учреждения')
+      };
+
+      nameInput.onchange = function() {
+        return inputText(nameInput, nameField);
+      }
+
+      nameInput.onblur = function() {
+        inputText(nameInput, nameField);
+        this.setAttribute('placeholder', 'Название компании или учреждения ✎');
+      }
+
+      var memoField = document.getElementById('memoField');
+      var memoInput = document.getElementById('memoInput');
+
+      function onClickMemo() {
+        memoField.style.display = 'none';
+        memoInput.style.display = 'block';
+        memoInput.focus();
+      }
+
+      memoInput.onfocus = function () {
+        memoInput.setAttribute('placeholder', 'Памятка кадровику')
+      };
+
+      memoInput.onchange = function() {
+        return inputText(memoInput, memoField);
+      }
+
+      memoInput.onblur = function() {
+        inputText(memoInput, memoField);
+        this.setAttribute('placeholder', 'Памятка кадровику ✎');
+      }
+    </script>
+  </body>
+</html>

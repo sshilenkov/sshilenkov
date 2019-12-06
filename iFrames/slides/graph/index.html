@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe</title>
+    <link rel="stylesheet" href="../main.css">
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .graph {
+        flex: 1 1 auto;
+        position: relative;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 2.7875vw 4.6875vw 2.7344vw 7.8125vw;
+        border: 1px solid #d0d0d0;
+        background-color: #fff;
+        font-family: "bureausans";
+      }
+
+      .graph__fullscreen-toggler {
+        position: absolute;
+        top: 12px;
+        right: 11px;
+        width: 20px;
+        height: 20px;
+        transition: transform .3s;
+      }
+
+      .graph__fullscreen-toggler:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      @media screen and (max-width: 720px) {
+        .graph__fullscreen-toggler {
+          display: none;
+        }
+      }
+
+      .graph__fullscreen-toggler svg {
+        position: inherit;
+      }
+
+      .graph__body {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 auto;
+        min-height: 45.3vw;
+        padding-bottom: 1.6406vw;
+      }
+
+      .graph__head {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .graph__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 0 1 20.235vw;
+        background-image: url(graph.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .graph__img-wrapper {
+        flex: 0 1 64.844vw;
+        margin: 1.431vw 0 0.8vw;
+        background-color: #e0e0e0;
+        background-image: url(http://www.waltonoutdoors.com/wp-content/uploads/2018/10/fallingwaterstrees-540x550.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      .graph__title {
+        flex: 0 1 64.844vw;
+        margin: 0;
+        font-size: 5.46875vw;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .graph__factoid {
+        flex: 0 1 20.85vw;
+      }
+
+      .graph__main-text {
+        font-size: 2.734371vw;
+        font-weight: bold;
+        font-weight: normal;
+        line-height: 1.14286;
+      }
+
+      .graph__footer {
+        display: flex;
+        min-height: 2.03125vw;
+        padding-top: 1.6406vw;
+        font-size: 2.03125vw;
+        font-weight: bold;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .graph__name-text,
+      .graph__site-text {
+        max-width: 19.532vw;
+        white-space: normal;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .graph__name {
+        position: relative;
+        flex: 0 1 20.157vw;
+        margin-right: 2.5781vw;
+      }
+
+      .graph__name-text::after {
+        content: '✎';
+        margin-left: 5px;
+        opacity: .2;
+      }
+
+      .graph__name-text:hover {
+        cursor: pointer;
+      }
+
+      .graph__site {
+        position: relative;
+        flex: 0 1 20.157vw;
+        color: #e10000;
+      }
+
+      .graph__site-text::after {
+        content: '✎';
+        margin-left: 5px;
+        color: #000;
+        opacity: .2;
+      }
+
+      .graph__site-text:hover {
+        cursor: pointer;
+      }
+
+      .graph__name-input,
+      .graph__site-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2.03125vw;
+        font-family: "bureausans";
+        font-weight: bold;
+        line-height: 1;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        height: 2.03125vw;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+        transition: border 0.3s;
+      }
+
+      .graph__name-input:focus,
+      .graph__site-input:focus {
+        border-color: #777;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      /* styles for vertical screens */
+      .graph.verticalScreen  {
+        padding: calc(6vw / 1.777778) calc(8.33vw / 1.777778) calc(4.861vw / 1.777778) calc(13.8889vw / 1.777778);
+      }
+
+      .verticalScreen .graph__body {
+        padding-bottom: calc(2.9166vw / 1.777778);
+      }
+
+      .verticalScreen .graph__content {
+        flex: 0 1 calc(75vw / 1.777778);
+        padding-right: calc(2vw / 1.777778);
+      }
+
+      .verticalScreen .graph__img-wrapper {
+        flex: 0 1 calc(75vw / 1.777778);
+      }
+
+      .verticalScreen .graph__title {
+        font-size: calc(9.72222vw / 1.777778);
+      }
+
+      .verticalScreen .graph__main-text {
+        font-size: calc(4.86111vw / 1.777778);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="graph">
+        <div class="graph__fullscreen-toggler" id="fullscreen-toggler">
+          <svg width="100%" height="100%" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4615 18.3737V14.0769H21V21H14.0769V19.4615H18.3737L12.7638 13.8516L13.8516 12.7638L19.4615 18.3737ZM3.62632 19.4615H7.92308V21H1V14.0769H2.53846V18.3737L8.14838 12.7638L9.23624 13.8516L3.62632 19.4615ZM18.3737 2.53846H14.0769V1H21V7.92308H19.4615V3.62632L13.8516 9.23624L12.7638 8.14838L18.3737 2.53846ZM2.53846 3.62632V7.92308H1V1H7.92308V2.53846H3.62632L9.23624 8.14838L8.14838 9.23624L2.53846 3.62632Z" fill="black" stroke="white"/>
+          </svg>
+        </div>
+        <div class="graph__body">
+          <div class="graph__head">
+            <div class="graph__title">Новый человек вышел на место уволенного, рабочее место и условия труда не изменились</div>
+            <div class="graph__factoid">
+              <div class="factoid factoid--graph">
+                <div class="factoid__number">12</div>
+                <div class="factoid__color-text">месяцев</div>
+                <div class="factoid__simple-text">для проведения проверки</div>
+              </div>
+            </div>
+          </div>
+          <div class="graph__content"></div>
+        </div>
+        <div class="slide__footer">
+          <div class="slide__name">
+            <textarea type="text" id="nameInput" class="slide__name-input" maxlength="30" placeholder="Название компании ✎" rows="1"></textarea>
+          </div>
+
+          <div class="slide__site">
+            <textarea type="text" id="siteInput" class="slide__site-input" maxlength="30" placeholder="Адрес сайта ✎" rows="1"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+    <script type="text/javascript" src="../autosize.min.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+  </body>
+</html>

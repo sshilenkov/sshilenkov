@@ -1,0 +1,154 @@
+.sidebar {
+  flex: 0 0 232px;
+}
+
+.sidebar__icon {
+  width: 105px;
+  height: 105px;
+  margin-bottom: 14px;
+  background-image: url(../svg/pen.svg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.sidebar__text {
+  width: 190px;
+  margin-bottom: 30px;
+  font-size: 19px;
+  line-height: 21.5px;
+}
+
+.sidebar__actions {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.sidebar__download {
+  flex: 0 1 172px;
+  margin-right: 11px;
+  padding: 10px 0 11px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0083A7;
+  color: #fff;
+  font-family: "Bureausans";
+  font-size: 28px;
+  line-height: 1;
+  transition: background .3s;
+}
+
+.sidebar__download:hover {
+  background-color: #007494;
+  cursor: pointer;
+}
+
+.sidebar__print {
+  flex: 1 1 auto;
+  border: 1px solid #0083A7;
+  border-radius: 4px;
+  background-color: transparent;
+  background-image: url(../svg/printer.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: 30.2px 31.2px;
+  background-size: 30.2px 31.2px;
+  transition: border-width .3s;
+}
+
+.sidebar__print:hover {
+  border-width: 2px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .container > div {
+    margin-right: 0;
+  }
+
+  .container .can-not,
+  .container .can-not-2,
+  .container .can-not-3,
+  .container .can-not-focus,
+  .container .checklist,
+  .container .instruction,
+  .container .numbered-count,
+  .container .numbered-list,
+  .container .poster-text,
+  .container .scream {
+    min-height: 135.5vw;
+  }
+
+  .sidebar {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex: unset;
+    margin-top: 20px;
+  }
+
+  .sidebar__icon {
+    width: 54px;
+    height: 54px;
+    margin: 0 10px 0 0;
+  }
+
+  .sidebar__text {
+    width: 270px;
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .sidebar__actions {
+    -ms-align-items: flex-end;
+    align-items: flex-end;
+    margin-left: auto;
+  }
+
+  .sidebar__download {
+    flex: 0 0 150px;
+    width: 150px;
+    height: 45px;
+    padding: 8px 0 9px;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .sidebar__print {
+    flex: 0 1 50px;
+    width: 50px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .sidebar {
+    flex-wrap: wrap;
+  }
+
+  .sidebar__text {
+    flex: 1 0 auto;
+  }
+
+  .sidebar__actions {
+    flex: 1 0 100%;
+    margin-top: 15px;
+  }
+
+  .sidebar__download {
+    flex: 1 0 150px;
+  }
+}

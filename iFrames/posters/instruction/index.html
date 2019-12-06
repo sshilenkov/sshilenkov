@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>poster</title>
+    <link rel="stylesheet" type="text/css" href="../main.css"></link>
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        font-family: 'Bureausans';
+      }
+
+      .instruction {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 101.774vw;
+        margin-right: 2.2vw;
+        padding: 1.7112vw 2.139vw 2.4vw;
+        background-color: #F0F0F0;
+        font-family: 'Bureausans';
+      }
+
+      .instruction__head {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: space-between;
+        min-height: 5.71428vw;
+      }
+
+      .instruction__edit {
+        flex: 0 1 35.65vw;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        margin-top: -0.4vw;
+        height: 4.5vw;
+      }
+
+      .instruction__name {
+        margin-right: 2.246vw;
+      }
+
+      .instruction__name,
+      .instruction__memo {
+        position: relative;
+        flex: 0 1 50%;
+        font-family: "bureausans";
+        font-size: 1.92513vw;
+        line-height: 1.11111;
+      }
+
+      .instruction__name-text,
+      .instruction__memo-text {
+        display: none;
+        position: absolute;
+        top: 0;
+        padding-bottom: 0.3071vw;
+        word-break: break-all;
+        border-bottom: 1px dashed #bdbdbd;
+      }
+
+      .instruction__name-text:hover,
+      .instruction__memo-text:hover {
+        cursor: pointer;
+      }
+
+      .instruction__name-input,
+      .instruction__memo-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-size: 1.92513vw;
+        font-family: "bureausans";
+        line-height: 1.11111;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        background-color: transparent;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      .instruction__logo {
+        flex: 1 1 auto;
+        height: 1.5vw;
+        background-image: url(logo.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+
+      .instruction__body {
+        flex: 0 1 89.74vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .instruction__title {
+        max-width: 60.75vw;
+        margin: 0;
+        font-size: 7.6vw;
+        line-height: 1;
+      }
+
+      .instruction__content {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        counter-reset: numbering;
+      }
+
+      .instruction__col {
+        flex: 0 1 29vw;
+        font-size: 1.92513vw;
+        line-height: 1.11173;
+      }
+
+      .instruction__col:first-child {
+        margin-right: 2.14vw;
+      }
+
+      .instruction__paragraph {
+        margin: 0;
+      }
+
+      .instruction__paragraph:not(:last-child) {
+        margin-bottom: 2.14023vw;
+      }
+
+      .instruction__paragraph span {
+        display: none;
+      }
+
+      .instruction__numbering {
+        margin-top: -0.18vw;
+      }
+
+      .instruction__numbering span {
+        position: relative;
+        display: inline-block;
+        width: 2.34vw;
+        height: 2.34vw;
+        margin-bottom: -0.55vw;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-position: center;
+      }
+
+      .counter-1::before,
+      .counter-2::before,
+      .counter-3::before,
+      .counter-4::before,
+      .counter-5::before,
+      .counter-6::before,
+      .counter-7::before,
+      .counter-8::before,
+      .counter-9::before,
+      .counter-10::before,
+      .counter-11::before,
+      .counter-12::before,
+      .counter-13::before,
+      .counter-14::before,
+      .counter-15::before,
+      .counter-16::before,
+      .counter-17::before,
+      .counter-18::before,
+      .counter-19::before,
+      .counter-20::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-position: center;
+        -webkit-print-color-adjust:exact;
+      }
+
+      .counter-1::before {
+        background-image: url(digits/1.svg);
+      }
+
+      .counter-2::before {
+        background-image: url(digits/2.svg);
+      }
+
+      .counter-3::before {
+        background-image: url(digits/3.svg);
+      }
+
+      .counter-4::before {
+        background-image: url(digits/4.svg);
+      }
+
+      .counter-5::before {
+        background-image: url(digits/5.svg);
+      }
+
+      .counter-6::before {
+        background-image: url(digits/6.svg);
+      }
+
+      .counter-7::before {
+        background-image: url(digits/7.svg);
+      }
+
+      .counter-8::before {
+        background-image: url(digits/8.svg);
+      }
+
+      .counter-9::before {
+        background-image: url(digits/9.svg);
+      }
+
+      .counter-10::before {
+        background-image: url(digits/10.svg);
+      }
+
+      .counter-11::before {
+        background-image: url(digits/11.svg);
+      }
+
+      .counter-12::before {
+        background-image: url(digits/12.svg);
+      }
+
+      .counter-13::before {
+        background-image: url(digits/13.svg);
+      }
+
+      .counter-14::before {
+        background-image: url(digits/14.svg);
+      }
+
+      .counter-15::before {
+        background-image: url(digits/15.svg);
+      }
+
+      .counter-16::before {
+        background-image: url(digits/16.svg);
+      }
+
+      .counter-17::before {
+        background-image: url(digits/17.svg);
+      }
+
+      .counter-18::before {
+        background-image: url(digits/18.svg);
+      }
+
+      .counter-19::before {
+        background-image: url(digits/19.svg);
+      }
+
+      .counter-20::before {
+        background-image: url(digits/20.svg);
+      }
+
+      /* Different logos */
+      .poster--accounting .instruction__logo {
+        background-image: url(../../svg/accounting.svg);
+      }
+
+      .poster--culture .instruction__logo {
+        background-image: url(../../svg/culture.svg);
+      }
+
+      .poster--digital .instruction__logo {
+        background-image: url(../../svg/digital.svg);
+      }
+
+      .poster--education .instruction__logo {
+        background-image: url(../../svg/education.svg);
+      }
+
+      .poster--finance .instruction__logo {
+        background-image: url(../../svg/finance.svg);
+      }
+
+      .poster--govfin .instruction__logo {
+        background-image: url(../../svg/govfin.svg);
+      }
+
+      .poster--govorder .instruction__logo {
+        background-image: url(../../svg/govorder.svg);
+      }
+
+      .poster--law .instruction__logo {
+        background-image: url(../../svg/law.svg);
+      }
+
+      .poster--management .instruction__logo {
+        background-image: url(../../svg/management.svg);
+      }
+
+      .poster--medicine .instruction__logo {
+        background-image: url(../../svg/medicine.svg);
+      }
+
+      .poster--personnel .instruction__logo {
+        background-image: url(../../svg/personnel.svg);
+      }
+
+      .poster--security .instruction__logo {
+        background-image: url(../../svg/security.svg);
+      }
+
+      /* light poster styles */
+
+      .poster-light.instruction{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-light .instruction__name-input,
+      .poster-light .instruction__memo-input {
+        border-color: #000;
+      }
+
+      .poster-light .instruction__name-text,
+      .poster-light .instruction__memo-text {
+        border-color: #000;
+      }
+
+      .poster-light ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #000;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-light :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #000;
+      }
+
+      .poster-light ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #000;
+      }
+
+      .poster-light.poster--accounting .instruction__logo {
+        background-image: url(../../svg/black/accounting.svg);
+      }
+
+      .poster-light.poster--culture .instruction__logo {
+        background-image: url(../../svg/black/culture.svg);
+      }
+
+      .poster-light.poster--digital .instruction__logo {
+        background-image: url(../../svg/black/digital.svg);
+      }
+
+      .poster-light.poster--education .instruction__logo {
+        background-image: url(../../svg/black/education.svg);
+      }
+
+      .poster-light.poster--finance .instruction__logo {
+        background-image: url(../../svg/black/finance.svg);
+      }
+
+      .poster-light.poster--govfin .instruction__logo {
+        background-image: url(../../svg/black/govfin.svg);
+      }
+
+      .poster-light.poster--govorder .instruction__logo {
+        background-image: url(../../svg/black/govorder.svg);
+      }
+
+      .poster-light.poster--law .instruction__logo {
+        background-image: url(../../svg/black/law.svg);
+      }
+
+      .poster-light.poster--management .instruction__logo {
+        background-image: url(../../svg/black/management.svg);
+      }
+
+      .poster-light.poster--medicine .instruction__logo {
+        background-image: url(../../svg/black/medicine.svg);
+      }
+
+      .poster-light.poster--personnel .instruction__logo {
+        background-image: url(../../svg/black/personnel.svg);
+      }
+
+      .poster-light.poster--security .instruction__logo {
+        background-image: url(../../svg/black/security.svg);
+      }
+
+      /* dark poster styles */
+
+      .poster-dark.instruction{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-dark .instruction__name,
+      .poster-dark .instruction__memo {
+        color: #fff;
+      }
+
+      .poster-dark .instruction__name-text,
+      .poster-dark .instruction__memo-text {
+        border-color: #fff;
+      }
+
+      .poster-dark .instruction__name-input,
+      .poster-dark .instruction__memo-input {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .poster-dark ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-dark :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+      }
+
+      .poster-dark ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #fff;
+      }
+
+      .poster-dark .instruction__title {
+        color: #fff;
+      }
+
+      .poster-dark .instruction__content {
+        color: #fff;
+      }
+
+      .poster-dark.poster--accounting .instruction__logo {
+        background-image: url(../../svg/white/accounting.svg);
+      }
+
+      .poster-dark.poster--culture .instruction__logo {
+        background-image: url(../../svg/white/culture.svg);
+      }
+
+      .poster-dark.poster--digital .instruction__logo {
+        background-image: url(../../svg/white/digital.svg);
+      }
+
+      .poster-dark.poster--education .instruction__logo {
+        background-image: url(../../svg/white/education.svg);
+      }
+
+      .poster-dark.poster--finance .instruction__logo {
+        background-image: url(../../svg/white/finance.svg);
+      }
+
+      .poster-dark.poster--govfin .instruction__logo {
+        background-image: url(../../svg/white/govfin.svg);
+      }
+
+      .poster-dark.poster--govorder .instruction__logo {
+        background-image: url(../../svg/white/govorder.svg);
+      }
+
+      .poster-dark.poster--law .instruction__logo {
+        background-image: url(../../svg/white/law.svg);
+      }
+
+      .poster-dark.poster--management .instruction__logo {
+        background-image: url(../../svg/white/management.svg);
+      }
+
+      .poster-dark.poster--medicine .instruction__logo {
+        background-image: url(../../svg/white/medicine.svg);
+      }
+
+      .poster-dark.poster--personnel .instruction__logo {
+        background-image: url(../../svg/white/personnel.svg);
+      }
+
+      .poster-dark.poster--security .instruction__logo {
+        background-image: url(../../svg/white/security.svg);
+      }
+
+      /* Print styles */
+      @media print {
+        @page { margin: 0 20px; }
+
+        .sidebar {
+          display: none;
+        }
+
+        .instruction {
+          height: 1050px;
+          margin-right: 0;
+        }
+
+        .instruction__name-text,
+        .instruction__memo-text {
+          color: #000;
+          border: none;
+        }
+
+        .instruction__name-text::after,
+        .instruction__memo-text::after {
+          display: none;
+        }
+
+        .instruction__body {
+          flex: 0 1 950px;
+        }
+
+        .instruction__title {
+          color: #000 !important;
+          max-width: 600px;
+        }
+
+        .instruction__col {
+          flex: 0 1 43%;
+        }
+
+        .instruction__paragraph {
+          color: #000 !important;
+        }
+
+        .instruction__numbering .counter-2 {
+          -webkit-print-color-adjust:exact;
+        }
+
+        textarea {
+          display: none !important;
+        }
+
+        .instruction__logo {
+          -webkit-print-color-adjust:exact;
+        }
+
+        .poster--accounting .instruction__logo {
+          background-image: url(../../svg/accounting.svg) !important;
+        }
+
+        .poster--culture .instruction__logo {
+          background-image: url(../../svg/culture.svg) !important;
+        }
+
+        .poster--digital .instruction__logo {
+          background-image: url(../../svg/digital.svg) !important;
+        }
+
+        .poster--education .instruction__logo {
+          background-image: url(../../svg/education.svg) !important;
+        }
+
+        .poster--finance .instruction__logo {
+          background-image: url(../../svg/finance.svg) !important;
+        }
+
+        .poster--govfin .instruction__logo {
+          background-image: url(../../svg/govfin.svg) !important;
+        }
+
+        .poster--govorder .instruction__logo {
+          background-image: url(../../svg/govorder.svg) !important;
+        }
+
+        .poster--law .instruction__logo {
+          background-image: url(../../svg/law.svg) !important;
+        }
+
+        .poster--management .instruction__logo {
+          background-image: url(../../svg/management.svg) !important;
+        }
+
+        .poster--medicine .instruction__logo {
+          background-image: url(../../svg/medicine.svg) !important;
+        }
+
+        .poster--personnel .instruction__logo {
+          background-image: url(../../svg/personnel.svg) !important;
+        }
+
+        .poster--security .instruction__logo {
+          background-image: url(../../svg/security.svg) !important;
+        }
+
+        .counter-1::before,
+        .counter-2::before,
+        .counter-3::before,
+        .counter-4::before,
+        .counter-5::before,
+        .counter-6::before,
+        .counter-7::before,
+        .counter-8::before,
+        .counter-9::before,
+        .counter-10::before,
+        .counter-11::before,
+        .counter-12::before,
+        .counter-13::before,
+        .counter-14::before,
+        .counter-15::before,
+        .counter-16::before,
+        .counter-17::before,
+        .counter-18::before,
+        .counter-19::before,
+        .counter-20::before {
+          display: block;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="instruction">
+        <div class="instruction__head">
+          <div class="instruction__edit">
+            <div class="instruction__name">
+              <div class="instruction__name-text" id="nameField" onclick="onClickName();"></div>
+              <textarea name="" id="nameInput" class="instruction__name-input" placeholder="Название компании или учреждения ✎" maxlength="30"></textarea>
+            </div>
+            <div class="instruction__memo">
+              <div class="instruction__memo-text" id="memoField" onclick="onClickMemo();"></div>
+              <textarea name="" id="memoInput" class="instruction__memo-input" placeholder="Памятка преподавателю ✎" maxlength="30"></textarea>
+            </div>
+          </div>
+          <div class="instruction__logo">
+          </div>
+        </div>
+        <div class="instruction__body">
+          <h2 class="instruction__title">Как написать пост в соцсети, чтобы вас не уволили</h2>
+          <div class="instruction__content">
+            <div class="instruction__col">
+              <p class="instruction__paragraph instruction__numbering">
+                <span style="background-image: url(digits/1.svg)"></span>
+                Подумайте, как характеризует вас пост, который вы публикуете. Помните, что в 21-м веке по материалам, которые человек выкладывает в соцсетях, судят о его личности.
+              </p>
+              <p class="instruction__paragraph instruction__numbering">
+                <span style="background-image: url(digits/2.svg)"></span>
+                Прежде чем публиковать что-то, задумайтесь, как характеризует вас эта информация. Подумайте, для кого предназначен пост. Исходя из этого решите, где его публиковать. Например, Фейсбук используют в основном родители учеников, коллеги-педагоги. А пост в Вконтакте или Инстаграме увидят и ученики.
+              </p>
+            </div>
+            <div class="instruction__col">
+              <p class="instruction__paragraph instruction__numbering">
+                <span style="background-image: url(digits/3.svg)"></span>
+                Определите, для кого публикуете материал. Задайте себе несколько вопросов. Если ответы положительные — публикуйте.
+              </p>
+              <p class="instruction__paragraph">
+                <span style="background-image: url(digits/4.svg)"></span>
+                То, чем вы делитесь, — важно и интересно для учеников? Вдохновляете ли вы учеников своим постом расти, искать и развиваться?
+              </p>
+              <p class="instruction__paragraph">
+                <span style="background-image: url(digits/black/5.svg)"></span>
+                Ваш материал не травмирует детей жестокостью или откровенностью, не провоцирует рисковать, совершать поступки, опасные для жизни и здоровья?
+              </p>
+              <p class="instruction__paragraph">
+                <span style="background-image: url(digits/white/6.svg)"></span>
+                Культурой языка и оформления публикации вы подаете пример?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar__icon"></div>
+        <div class="sidebar__text">
+          Впишите название и адрес своего учреждения в плакат, распечатайте его и используйте в работе
+        </div>
+        <div class="sidebar__actions">
+          <button class="sidebar__download">Скачать</button>
+          <button class="sidebar__print"></button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+
+    <script>
+      // input logic
+      var nameField = document.getElementById('nameField');
+      var nameInput = document.getElementById('nameInput');
+
+      function inputText(input, field) {
+        if (input.value) {
+          field.style.display = 'block';
+          input.style.display = 'none';
+          field.textContent = input.value;
+        }
+      }
+
+      function onClickName() {
+        nameField.style.display = 'none';
+        nameInput.style.display = 'block';
+        nameInput.focus();
+      }
+
+      nameInput.onfocus = function () {
+        nameInput.setAttribute('placeholder', 'Название компании или учреждения')
+      };
+
+      nameInput.onchange = function() {
+        return inputText(nameInput, nameField);
+      }
+
+      nameInput.onblur = function() {
+        inputText(nameInput, nameField);
+        this.setAttribute('placeholder', 'Название компании или учреждения ✎');
+      }
+
+      var memoField = document.getElementById('memoField');
+      var memoInput = document.getElementById('memoInput');
+
+      function onClickMemo() {
+        memoField.style.display = 'none';
+        memoInput.style.display = 'block';
+        memoInput.focus();
+      }
+
+      memoInput.onfocus = function () {
+        memoInput.setAttribute('placeholder', 'Памятка преподавателю')
+      };
+
+      memoInput.onchange = function() {
+        return inputText(memoInput, memoField);
+      }
+
+      memoInput.onblur = function() {
+        inputText(memoInput, memoField);
+        this.setAttribute('placeholder', 'Памятка преподавателю ✎');
+      }
+
+      // circles logic
+      var instrPoints = document.querySelectorAll('.instruction__numbering');
+      instrPoints.forEach(function(item, index) {
+        var circle = item.querySelector('span');
+        !circle.classList.contains(`counter-${index + 1}`) && circle.classList.add(`counter-${index + 1}`);
+      });
+    </script>
+  </body>
+</html>

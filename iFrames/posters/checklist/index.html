@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>poster</title>
+    <link rel="stylesheet" type="text/css" href="../main.css"></link>
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        font-family: 'Bureausans';
+      }
+
+      .checklist {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100.074vw;
+        margin-right: 2.2vw;
+        padding: 3.3155vw 2.139vw 2.5vw;
+        background-color: #F0F0F0;
+      }
+
+      .checklist__head {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .checklist__edit {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 0.7487vw;
+      }
+
+      .checklist__name {
+        margin-bottom: 0.7487vw;
+      }
+
+      .checklist__name,
+      .checklist__memo {
+        position: relative;
+        flex: 0 1 4.5vw;
+        font-family: "bureausans";
+        font-size: 1.92513vw;
+        line-height: 1.11111;
+      }
+
+      .checklist__name-text,
+      .checklist__memo-text {
+        display: none;
+        position: absolute;
+        top: 0;
+        padding-bottom: 0.3071vw;
+        word-break: break-all;
+        border-bottom: 1px dashed #bdbdbd;
+      }
+
+      .checklist__name-text:hover,
+      .checklist__memo-text:hover {
+        cursor: pointer;
+      }
+
+      .checklist__name-input,
+      .checklist__memo-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-size: 1.92513vw;
+        font-family: "bureausans";
+        line-height: 1.11111;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        background-color: transparent;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      .checklist__logo {
+        height: 1.5vw;
+        background-image: url(logo.svg);
+        background-position: left center;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+
+      .checklist__body {
+        flex: 0 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 61.177vw;
+      }
+
+      .checklist__title {
+        flex: 0 1 49.84vw;
+        margin: 0 2.14vw 0 0;
+        font-size: 5.3476vw;
+        line-height: 1;
+      }
+
+      .checklist__info {
+        flex: 0 1 18.61vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 1.5vw;
+        padding-bottom: 0.9vw;
+      }
+
+      .checklist__list {
+        margin: 0;
+        padding-left: 0;
+        list-style-type: none;
+        font-size: 3vw;
+      }
+
+      .checklist__item {
+        position: relative;
+        margin-bottom: 1.6043vw;
+        padding-left: 3.7433vw;
+        line-height: 1;
+      }
+
+      .checklist__item:hover {
+        cursor: pointer;
+      }
+
+      .checklist__item::before {
+        content: '';
+        position: absolute;
+        top: -0.7vw;
+        left: 0;
+        width: 2.7555555vw;
+        height: 3.1vw;
+        background-image: url(box.svg);
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-position: center;
+        transition: background .01s ease 0.1s;
+      }
+
+      .checklist__item--checked::before {
+        background-image: url(checked-box.svg);
+      }
+
+      /* Different logos */
+      .poster--accounting .checklist__logo {
+        background-image: url(../../svg/accounting.svg);
+      }
+
+      .poster--culture .checklist__logo {
+        background-image: url(../../svg/culture.svg);
+      }
+
+      .poster--digital .checklist__logo {
+        background-image: url(../../svg/digital.svg);
+      }
+
+      .poster--education .checklist__logo {
+        background-image: url(../../svg/education.svg);
+      }
+
+      .poster--finance .checklist__logo {
+        background-image: url(../../svg/finance.svg);
+      }
+
+      .poster--govfin .checklist__logo {
+        background-image: url(../../svg/govfin.svg);
+      }
+
+      .poster--govorder .checklist__logo {
+        background-image: url(../../svg/govorder.svg);
+      }
+
+      .poster--law .checklist__logo {
+        background-image: url(../../svg/law.svg);
+      }
+
+      .poster--management .checklist__logo {
+        background-image: url(../../svg/management.svg);
+      }
+
+      .poster--medicine .checklist__logo {
+        background-image: url(../../svg/medicine.svg);
+      }
+
+      .poster--personnel .checklist__logo {
+        background-image: url(../../svg/personnel.svg);
+      }
+
+      .poster--security .checklist__logo {
+        background-image: url(../../svg/security.svg);
+      }
+
+      /* light poster styles */
+
+      .poster-light.checklist{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-light .checklist__name-text,
+      .poster-light .checklist__memo-text {
+        border-color: #000;
+      }
+
+      .poster-light .checklist__name-input,
+      .poster-light .checklist__memo-input {
+        border-color: #000;
+      }
+
+      .poster-light ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #000;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-light :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #000;
+      }
+
+      .poster-light ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #000;
+      }
+
+      .poster-light .checklist__item::before {
+        background-image: url(box-black.svg);
+      }
+
+      .poster-light .checklist__item--checked::before {
+        background-image: url(checked-box-black.svg);
+      }
+
+      .poster-light.poster--accounting .checklist__logo {
+        background-image: url(../../svg/black/accounting.svg);
+      }
+
+      .poster-light.poster--culture .checklist__logo {
+        background-image: url(../../svg/black/culture.svg);
+      }
+
+      .poster-light.poster--digital .checklist__logo {
+        background-image: url(../../svg/black/digital.svg);
+      }
+
+      .poster-light.poster--education .checklist__logo {
+        background-image: url(../../svg/black/education.svg);
+      }
+
+      .poster-light.poster--finance .checklist__logo {
+        background-image: url(../../svg/black/finance.svg);
+      }
+
+      .poster-light.poster--govfin .checklist__logo {
+        background-image: url(../../svg/black/govfin.svg);
+      }
+
+      .poster-light.poster--govorder .checklist__logo {
+        background-image: url(../../svg/black/govorder.svg);
+      }
+
+      .poster-light.poster--law .checklist__logo {
+        background-image: url(../../svg/black/law.svg);
+      }
+
+      .poster-light.poster--management .checklist__logo {
+        background-image: url(../../svg/black/management.svg);
+      }
+
+      .poster-light.poster--medicine .checklist__logo {
+        background-image: url(../../svg/black/medicine.svg);
+      }
+
+      .poster-light.poster--personnel .checklist__logo {
+        background-image: url(../../svg/black/personnel.svg);
+      }
+
+      .poster-light.poster--security .checklist__logo {
+        background-image: url(../../svg/black/security.svg);
+      }
+
+      /* dark poster styles */
+
+      .poster-dark.checklist{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-dark .checklist__name,
+      .poster-dark .checklist__memo {
+        color: #fff;
+      }
+
+      .poster-dark .checklist__name-text,
+      .poster-dark .checklist__memo-text {
+        border-color: #fff;
+      }
+
+      .poster-dark .checklist__name-input,
+      .poster-dark .checklist__memo-input {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .poster-dark ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-dark :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+      }
+
+      .poster-dark ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #fff;
+      }
+
+      .poster-dark .checklist__title {
+        color: #fff;
+      }
+
+      .poster-dark .checklist__list {
+        color: #fff;
+      }
+
+      .poster-dark .checklist__item::before {
+        background-image: url(box-white.svg);
+      }
+
+      .poster-dark .checklist__item--checked::before {
+        background-image: url(checked-box-white.svg);
+      }
+
+      .poster-dark.poster--accounting .checklist__logo {
+        background-image: url(../../svg/white/accounting.svg);
+      }
+
+      .poster-dark.poster--culture .checklist__logo {
+        background-image: url(../../svg/white/culture.svg);
+      }
+
+      .poster-dark.poster--digital .checklist__logo {
+        background-image: url(../../svg/white/digital.svg);
+      }
+
+      .poster-dark.poster--education .checklist__logo {
+        background-image: url(../../svg/white/education.svg);
+      }
+
+      .poster-dark.poster--finance .checklist__logo {
+        background-image: url(../../svg/white/finance.svg);
+      }
+
+      .poster-dark.poster--govfin .checklist__logo {
+        background-image: url(../../svg/white/govfin.svg);
+      }
+
+      .poster-dark.poster--govorder .checklist__logo {
+        background-image: url(../../svg/white/govorder.svg);
+      }
+
+      .poster-dark.poster--law .checklist__logo {
+        background-image: url(../../svg/white/law.svg);
+      }
+
+      .poster-dark.poster--management .checklist__logo {
+        background-image: url(../../svg/white/management.svg);
+      }
+
+      .poster-dark.poster--medicine .checklist__logo {
+        background-image: url(../../svg/white/medicine.svg);
+      }
+
+      .poster-dark.poster--personnel .checklist__logo {
+        background-image: url(../../svg/white/personnel.svg);
+      }
+
+      .poster-dark.poster--security .checklist__logo {
+        background-image: url(../../svg/white/security.svg);
+      }
+
+      /* Print styles */
+      @media print {
+        @page { margin: 0 20px; }
+
+        .sidebar {
+          display: none;
+        }
+
+        .checklist {
+          height: 1050px;
+          margin-right: 0;
+        }
+
+        .checklist__name-text,
+        .checklist__memo-text {
+          color: #000;
+          border: none;
+        }
+
+        .checklist__name-text::after,
+        .checklist__memo-text::after {
+          display: none;
+        }
+
+        .checklist__title {
+          color: #000 !important;
+        }
+
+        .checklist__item {
+          color: #000 !important;
+        }
+
+        .checklist__item::before,
+        .checklist__item--checked::before {
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+
+        .checklist__item::before {
+          background-image: url(box.svg) !important;
+        }
+
+        .checklist__item--checked::before {
+          background-image: url(checked-box.svg) !important;
+        }
+
+        textarea {
+          display: none !important;
+        }
+
+        .checklist__logo {
+          -webkit-print-color-adjust:exact;
+          color-adjust: exact;
+        }
+
+        .poster--accounting .checklist__logo {
+          background-image: url(../../svg/accounting.svg) !important;
+        }
+
+        .poster--culture .checklist__logo {
+          background-image: url(../../svg/culture.svg) !important;
+        }
+
+        .poster--digital .checklist__logo {
+          background-image: url(../../svg/digital.svg) !important;
+        }
+
+        .poster--education .checklist__logo {
+          background-image: url(../../svg/education.svg) !important;
+        }
+
+        .poster--finance .checklist__logo {
+          background-image: url(../../svg/finance.svg) !important;
+        }
+
+        .poster--govfin .checklist__logo {
+          background-image: url(../../svg/govfin.svg) !important;
+        }
+
+        .poster--govorder .checklist__logo {
+          background-image: url(../../svg/govorder.svg) !important;
+        }
+
+        .poster--law .checklist__logo {
+          background-image: url(../../svg/law.svg) !important;
+        }
+
+        .poster--management .checklist__logo {
+          background-image: url(../../svg/management.svg) !important;
+        }
+
+        .poster--medicine .checklist__logo {
+          background-image: url(../../svg/medicine.svg) !important;
+        }
+
+        .poster--personnel .checklist__logo {
+          background-image: url(../../svg/personnel.svg) !important;
+        }
+
+        .poster--security .checklist__logo {
+          background-image: url(../../svg/security.svg) !important;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="checklist">
+        <div class="checklist__head">
+          <h2 class="checklist__title">Документы, которые помогут избежать штрафов</h2>
+          <div class="checklist__info">
+            <div class="checklist__edit">
+              <div class="checklist__name">
+                <div class="checklist__name-text" id="nameField" onclick="onClickName();"></div>
+                <textarea name="" id="nameInput" class="checklist__name-input" placeholder="Название компании или учреждения ✎" maxlength="30"></textarea>
+              </div>
+              <div class="checklist__memo">
+                <div class="checklist__memo-text" id="memoField" onclick="onClickMemo();"></div>
+                <textarea name="" id="memoInput" class="checklist__memo-input" placeholder="Памятка преподавателю ✎" maxlength="30"></textarea>
+              </div>
+            </div>
+            <div class="checklist__logo">
+            </div>
+          </div>
+        </div>
+        <div class="checklist__body">
+          <ul class="checklist__list">
+            <li class="checklist__item">Положение об управлении охраной труда</li>
+            <li class="checklist__item">Стандарты и правила по охране труда в соответствии со спецификой организации</li>
+            <li class="checklist__item">Отчет по оценке рисков</li>
+            <li class="checklist__item">Политика в области охраны труда</li>
+            <li class="checklist__item">Перечень нормативных правовых актов, содержащих требования охраны труда</li>
+            <li class="checklist__item">Программа производственного контроля</li>
+            <li class="checklist__item">Положение об управлении охраной труда</li>
+            <li class="checklist__item">Акты проверки и журнал учета проверок состояния охраны труда</li>
+            <li class="checklist__item">Отчет о специальной оценке условий труда</li>
+            <li class="checklist__item">График, по которому проводили спецоценку</li>
+            <li class="checklist__item">Декларация соответствия условий труда нормативным требованиям охраны труда</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar__icon"></div>
+        <div class="sidebar__text">
+          Впишите название и адрес своего учреждения в плакат, распечатайте его и используйте в работе
+        </div>
+        <div class="sidebar__actions">
+          <button class="sidebar__download">Скачать</button>
+          <button class="sidebar__print"></button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+
+    <script>
+      // input logic
+      var nameField = document.getElementById('nameField');
+      var nameInput = document.getElementById('nameInput');
+
+      function inputText(input, field) {
+        if (input.value) {
+          field.style.display = 'block';
+          input.style.display = 'none';
+          field.textContent = input.value;
+        }
+      }
+
+      function onClickName() {
+        nameField.style.display = 'none';
+        nameInput.style.display = 'block';
+        nameInput.focus();
+      }
+
+      nameInput.onfocus = function () {
+        nameInput.setAttribute('placeholder', 'Название компании или учреждения')
+      };
+
+      nameInput.onchange = function() {
+        return inputText(nameInput, nameField);
+      }
+
+      nameInput.onblur = function() {
+        inputText(nameInput, nameField);
+        this.setAttribute('placeholder', 'Название компании или учреждения ✎');
+      }
+
+      var memoField = document.getElementById('memoField');
+      var memoInput = document.getElementById('memoInput');
+
+      function onClickMemo() {
+        memoField.style.display = 'none';
+        memoInput.style.display = 'block';
+        memoInput.focus();
+      }
+
+      memoInput.onfocus = function () {
+        memoInput.setAttribute('placeholder', 'Памятка преподавателю')
+      };
+
+      memoInput.onchange = function() {
+        return inputText(memoInput, memoField);
+      }
+
+      memoInput.onblur = function() {
+        inputText(memoInput, memoField);
+        this.setAttribute('placeholder', 'Памятка преподавателю ✎');
+      }
+
+      // checkbox logic
+      var items = document.querySelectorAll('.checklist__item');
+
+      items.forEach(function(item) {
+        item.onclick = function() {
+          item.classList.toggle('checklist__item--checked');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe</title>
+    <link rel="stylesheet" href="../main.css">
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        font-family: "bureausans";
+      }
+
+      .slide-title {
+        flex: 1 1 auto;
+        position: relative;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 4.6875vw 4.6875vw 2.7344vw 7.8125vw;
+        border: 1px solid #d0d0d0;
+        background-color: #fff;
+      }
+
+      .slide-title__fullscreen-toggler {
+        position: absolute;
+        top: 12px;
+        right: 11px;
+        width: 20px;
+        height: 20px;
+        transition: transform .3s;
+      }
+
+      .slide-title__fullscreen-toggler:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      @media screen and (max-width: 720px) {
+        .slide-title__fullscreen-toggler {
+          display: none;
+        }
+      }
+
+      .slide-title__fullscreen-toggler svg {
+        position: inherit;
+      }
+
+      .slide-title__body {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 auto;
+        min-height: 44.2vw;
+        padding-bottom: 0.8vw;
+      }
+
+      .slide-title__title {
+        margin: 0;
+        color: #e10000;
+        font-size: 10.9375vw;
+        line-height: 0.8;
+      }
+
+      .slide-title__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 2.73438vw;
+        line-height: 1.142855;
+      }
+
+      .slide-title__main-text {
+        flex: 0 1 42.032vw;
+      }
+
+      .slide-title__additional-text {
+        flex: 0 1 19.532vw;
+      }
+
+      .slide-title__footer {
+        display: flex;
+        min-height: 2.03125vw;
+        padding-top: 1.6406vw;
+        font-size: 2.03125vw;
+        font-weight: bold;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .slide-title__name-text,
+      .slide-title__site-text {
+        max-width: 19.532vw;
+        white-space: normal;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .slide-title__name {
+        position: relative;
+        flex: 0 1 20.157vw;
+        margin-right: 2.5781vw;
+      }
+
+      .slide-title__name-text::after {
+        content: '✎';
+        margin-left: 5px;
+        opacity: .2;
+      }
+
+      .slide-title__name-text:hover {
+        cursor: pointer;
+      }
+
+      .slide-title__site {
+        position: relative;
+        flex: 0 1 20.157vw;
+        color: #e10000;
+      }
+
+      .slide-title__site-text::after {
+        content: '✎';
+        margin-left: 5px;
+        color: #000;
+        opacity: .2;
+      }
+
+      .slide-title__site-text:hover {
+        cursor: pointer;
+      }
+
+      .slide-title__name-input,
+      .slide-title__site-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 2.03125vw;
+        font-family: "bureausans";
+        font-weight: bold;
+        line-height: 1;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        height: 2.03125vw;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+        transition: border 0.3s;
+      }
+
+      .title__name-input:focus,
+      .title__site-input:focus {
+        border-color: #777;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      /* styles for vertical screens */
+      .slide-title.verticalScreen  {
+        padding: calc(6vw / 1.777778) calc(8.33vw / 1.777778) calc(4.861vw / 1.777778) calc(13.8889vw / 1.777778);
+      }
+
+      .verticalScreen .slide-title__body {
+        padding-bottom: calc(2.9166vw / 1.777778);
+      }
+
+      .verticalScreen .slide-title__content {
+        font-size: calc(4.86111vw / 1.777778);
+      }
+
+      .verticalScreen .slide-title__title {
+        font-size: calc(19.4445vw / 1.777778);
+      }
+
+      .verticalScreen .slide-title__main-text {
+        flex: 0 1 calc(75vw / 1.777778);
+        margin-right: calc(27.7vw / 1.777778);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slide-title">
+        <div class="slide-title__fullscreen-toggler" id="fullscreen-toggler">
+          <svg width="100%" height="100%" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4615 18.3737V14.0769H21V21H14.0769V19.4615H18.3737L12.7638 13.8516L13.8516 12.7638L19.4615 18.3737ZM3.62632 19.4615H7.92308V21H1V14.0769H2.53846V18.3737L8.14838 12.7638L9.23624 13.8516L3.62632 19.4615ZM18.3737 2.53846H14.0769V1H21V7.92308H19.4615V3.62632L13.8516 9.23624L12.7638 8.14838L18.3737 2.53846ZM2.53846 3.62632V7.92308H1V1H7.92308V2.53846H3.62632L9.23624 8.14838L8.14838 9.23624L2.53846 3.62632Z" fill="black" stroke="white"/>
+          </svg>
+        </div>
+        <div class="slide-title__body">
+          <h2 class="slide-title__title">Внеплановая спецоценка</h2>
+          <div class="slide-title__content">
+            <div class="slide-title__main-text">Одно предложение с описанием задачи или полезного действия презентации</div>
+            <div class="slide-title__additional-text">3—4 слова, если зачем-то они нужны</div>
+          </div>
+        </div>
+        <div class="slide-title__footer">
+          <div class="slide__name">
+            <textarea type="text" id="nameInput" class="slide__name-input" maxlength="30" placeholder="Название компании ✎" rows="1"></textarea>
+          </div>
+
+          <div class="slide__site">
+            <textarea type="text" id="siteInput" class="slide__site-input" maxlength="30" placeholder="Адрес сайта ✎" rows="1"></textarea>
+          </div>
+
+          <div class="slide__prepared">
+            Подготовлено в <img class="slide__logo" src="../../svg/security.svg" alt="Logo">
+          </div>
+        </div>
+      </div>
+      <div class="additional">
+        <div class="additional__info">
+          <div class="additional__icon"></div>
+          Впишите в слайды название своей компании, скачайте презентацию и используйте её в работе
+        </div>
+        <button class="additional__download">
+          <span class="additional__download--desktop">Скачать презентацию</span>
+          <span class="additional__download--mobile">Скачать</span>
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+    <script type="text/javascript" src="../autosize.min.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+  </body>
+</html>

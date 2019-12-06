@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe</title>
+    <link rel="stylesheet" href="../main.css">
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .list-2 {
+        flex: 1 1 auto;
+        position: relative;
+        box-sizing: border-box;
+        padding: 2.7875vw 4.6875vw 2.7344vw 7.8125vw;
+        border: 1px solid #d0d0d0;
+        background-color: #fff;
+        font-family: "bureausans";
+      }
+
+      .list-2__fullscreen-toggler {
+        position: absolute;
+        top: 12px;
+        right: 11px;
+        width: 20px;
+        height: 20px;
+        transition: transform .3s;
+      }
+
+      .list-2__fullscreen-toggler:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      @media screen and (max-width: 720px) {
+        .list-2__fullscreen-toggler {
+          display: none;
+        }
+      }
+
+      .list-2__fullscreen-toggler svg {
+        position: inherit;
+      }
+
+      .list-2__body {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 auto;
+        min-height: 46.2vw;
+        padding-bottom: 0.7vw;
+      }
+
+      .list-2__title {
+        max-width: 64.844vw;
+        margin: 0;
+        font-size: 5.46875vw;
+        line-height: 1;
+      }
+
+      .list-2__content {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2.734371vw;
+        line-height: 1.14286;
+      }
+
+      .list-2 p {
+        margin: 0;
+        flex: 0 1 19.532vw;
+      }
+
+      .list-2 p:last-child {
+        color: #e10000;
+      }
+
+      .list-2__main-text {
+        font-size: 5.46875vw;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .list-2__factoid {
+        flex: 0 1 19.532vw;
+        padding-bottom: 0.35vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="list-2">
+        <div class="list-2__fullscreen-toggler" id="fullscreen-toggler">
+          <svg width="100%" height="100%" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4615 18.3737V14.0769H21V21H14.0769V19.4615H18.3737L12.7638 13.8516L13.8516 12.7638L19.4615 18.3737ZM3.62632 19.4615H7.92308V21H1V14.0769H2.53846V18.3737L8.14838 12.7638L9.23624 13.8516L3.62632 19.4615ZM18.3737 2.53846H14.0769V1H21V7.92308H19.4615V3.62632L13.8516 9.23624L12.7638 8.14838L18.3737 2.53846ZM2.53846 3.62632V7.92308H1V1H7.92308V2.53846H3.62632L9.23624 8.14838L8.14838 9.23624L2.53846 3.62632Z" fill="black" stroke="white"/>
+          </svg>
+        </div>
+        <div class="list-2__body">
+          <h2 class="list-2__title">В каких ситуациях проводить спецоценку в течение 6 месяцев</h2>
+          <div class="list-2__content">
+            <p>Новое заболевание на производстве</p>
+            <p>Профсоюз выступил с предложением</p>
+            <p>Изменили состав сырья или материалов</p>
+            <p>Произошел несчастный случай</p>
+          </div>
+        </div>
+        <div class="slide__footer">
+          <div class="slide__name">
+            <textarea type="text" id="nameInput" class="slide__name-input" maxlength="30" placeholder="Название компании ✎" rows="1"></textarea>
+          </div>
+
+          <div class="slide__site">
+            <textarea type="text" id="siteInput" class="slide__site-input" maxlength="30" placeholder="Адрес сайта ✎" rows="1"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+    <script type="text/javascript" src="../autosize.min.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+
+  </body>
+</html>

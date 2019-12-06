@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>poster</title>
+    <link rel="stylesheet" type="text/css" href="../main.css"></link>
+    <style type="text/css">
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Regular.woff') format('woff'),
+
+              url('./fonts/Bureausans-Regular.otf') format('otf');
+
+        font-weight: normal;
+
+        font-style: normal;
+
+      }
+
+      @font-face{
+
+        font-family: 'bureausans';
+
+        src: url('./fonts/Bureausans-Bold.woff') format('woff'),
+
+              url('./fonts/Bureausans-Bold.otf') format('otf');
+
+        font-weight: bold;
+
+        font-style: normal;
+
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        font-family: 'Bureausans';
+      }
+
+      .poster-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 101.774vw;
+        margin-right: 2.2vw;
+        padding: 1.7112vw 2.139vw 2.4vw;
+        background-color: #F0F0F0;
+      }
+
+      .poster-text__head {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: space-between;
+        min-height: 5.71428vw;
+      }
+
+      .poster-text__edit {
+        flex: 0 1 35.65vw;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        margin-top: -0.4vw;
+        height: 4.5vw;
+      }
+
+      .poster-text__name {
+        margin-right: 2.246vw;
+      }
+
+      .poster-text__name,
+      .poster-text__memo {
+        position: relative;
+        flex: 0 1 50%;
+        font-family: "bureausans";
+        font-size: 1.92513vw;
+        line-height: 1.11111;
+      }
+
+      .poster-text__name-text,
+      .poster-text__memo-text {
+        display: none;
+        position: absolute;
+        top: 0;
+        padding-bottom: 0.3071vw;
+        word-break: break-all;
+        border-bottom: 1px dashed #bdbdbd;
+      }
+
+      .poster-text__name-text:hover,
+      .poster-text__memo-text:hover {
+        cursor: pointer;
+      }
+
+      .poster-text__name-input,
+      .poster-text__memo-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-size: 1.92513vw;
+        font-family: "bureausans";
+        line-height: 1.11111;
+        border: none;
+        border-bottom: 1px dashed #bdbdbd;
+        padding: 0px;
+        background-color: transparent;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bdbdbd;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #bdbdbd;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #bdbdbd;
+      }
+
+      .poster-text__logo {
+        flex: 1 1 auto;
+        height: 1.5vw;
+        background-image: url(logo.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+      }
+
+      .poster-text__body {
+        flex: 0 1 89.74vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .poster-text__title {
+        max-width: 60.75vw;
+        margin: 0;
+        font-size: 7.6vw;
+        line-height: 1;
+      }
+
+      .poster-text__content {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+
+      }
+
+      .poster-text__col {
+        flex: 0 1 29vw;
+        font-size: 1.92513vw;
+        line-height: 1.11173;
+      }
+
+      .poster-text__col:first-child {
+        margin-right: 2.14vw;
+      }
+
+      .poster-text__paragraph {
+        margin: 0;
+      }
+
+      .poster-text__paragraph:not(:last-child) {
+        margin-bottom: 2.14023vw;
+      }
+
+      /* Different logos */
+      .poster--accounting .poster-text__logo {
+        background-image: url(../../svg/accounting.svg);
+      }
+
+      .poster--culture .poster-text__logo {
+        background-image: url(../../svg/culture.svg);
+      }
+
+      .poster--digital .poster-text__logo {
+        background-image: url(../../svg/digital.svg);
+      }
+
+      .poster--education .poster-text__logo {
+        background-image: url(../../svg/education.svg);
+      }
+
+      .poster--finance .poster-text__logo {
+        background-image: url(../../svg/finance.svg);
+      }
+
+      .poster--govfin .poster-text__logo {
+        background-image: url(../../svg/govfin.svg);
+      }
+
+      .poster--govorder .poster-text__logo {
+        background-image: url(../../svg/govorder.svg);
+      }
+
+      .poster--law .poster-text__logo {
+        background-image: url(../../svg/law.svg);
+      }
+
+      .poster--management .poster-text__logo {
+        background-image: url(../../svg/management.svg);
+      }
+
+      .poster--medicine .poster-text__logo {
+        background-image: url(../../svg/medicine.svg);
+      }
+
+      .poster--personnel .poster-text__logo {
+        background-image: url(../../svg/personnel.svg);
+      }
+
+      .poster--security .poster-text__logo {
+        background-image: url(../../svg/security.svg);
+      }
+
+      /* light poster styles */
+
+      .poster-light.poster-text{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-light .poster-text__name-text,
+      .poster-light .poster-text__memo-text {
+        border-color: #000;
+      }
+
+      .poster-light .poster-text__name-input,
+      .poster-light .poster-text__memo-input {
+        border-color: #000;
+      }
+
+      .poster-light ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #000;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-light :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #000;
+      }
+
+      .poster-light ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #000;
+      }
+
+      .poster-light.poster--accounting .poster-text__logo {
+        background-image: url(../../svg/black/accounting.svg);
+      }
+
+      .poster-light.poster--culture .poster-text__logo {
+        background-image: url(../../svg/black/culture.svg);
+      }
+
+      .poster-light.poster--digital .poster-text__logo {
+        background-image: url(../../svg/black/digital.svg);
+      }
+
+      .poster-light.poster--education .poster-text__logo {
+        background-image: url(../../svg/black/education.svg);
+      }
+
+      .poster-light.poster--finance .poster-text__logo {
+        background-image: url(../../svg/black/finance.svg);
+      }
+
+      .poster-light.poster--govfin .poster-text__logo {
+        background-image: url(../../svg/black/govfin.svg);
+      }
+
+      .poster-light.poster--govorder .poster-text__logo {
+        background-image: url(../../svg/black/govorder.svg);
+      }
+
+      .poster-light.poster--law .poster-text__logo {
+        background-image: url(../../svg/black/law.svg);
+      }
+
+      .poster-light.poster--management .poster-text__logo {
+        background-image: url(../../svg/black/management.svg);
+      }
+
+      .poster-light.poster--medicine .poster-text__logo {
+        background-image: url(../../svg/black/medicine.svg);
+      }
+
+      .poster-light.poster--personnel .poster-text__logo {
+        background-image: url(../../svg/black/personnel.svg);
+      }
+
+      .poster-light.poster--security .poster-text__logo {
+        background-image: url(../../svg/black/security.svg);
+      }
+
+      /* dark poster styles */
+
+      .poster-dark.poster-text{
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+
+      .poster-dark .poster-text__name,
+      .poster-dark .poster-text__memo {
+        color: #fff;
+      }
+
+      .poster-dark .poster-text__name-text,
+      .poster-dark .poster-text__memo-text {
+        border-color: #fff;
+      }
+
+      .poster-dark .poster-text__name-input,
+      .poster-dark .poster-text__memo-input {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .poster-dark ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+      }
+
+      .poster-dark :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+      }
+
+      .poster-dark ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #fff;
+      }
+
+      .poster-dark .poster-text__title {
+        color: #fff;
+      }
+
+      .poster-dark .poster-text__content {
+        color: #fff;
+      }
+
+      .poster-dark.poster--accounting .poster-text__logo {
+        background-image: url(../../svg/white/accounting.svg);
+      }
+
+      .poster-dark.poster--culture .poster-text__logo {
+        background-image: url(../../svg/white/culture.svg);
+      }
+
+      .poster-dark.poster--digital .poster-text__logo {
+        background-image: url(../../svg/white/digital.svg);
+      }
+
+      .poster-dark.poster--education .poster-text__logo {
+        background-image: url(../../svg/white/education.svg);
+      }
+
+      .poster-dark.poster--finance .poster-text__logo {
+        background-image: url(../../svg/white/finance.svg);
+      }
+
+      .poster-dark.poster--govfin .poster-text__logo {
+        background-image: url(../../svg/white/govfin.svg);
+      }
+
+      .poster-dark.poster--govorder .poster-text__logo {
+        background-image: url(../../svg/white/govorder.svg);
+      }
+
+      .poster-dark.poster--law .poster-text__logo {
+        background-image: url(../../svg/white/law.svg);
+      }
+
+      .poster-dark.poster--management .poster-text__logo {
+        background-image: url(../../svg/white/management.svg);
+      }
+
+      .poster-dark.poster--medicine .poster-text__logo {
+        background-image: url(../../svg/white/medicine.svg);
+      }
+
+      .poster-dark.poster--personnel .poster-text__logo {
+        background-image: url(../../svg/white/personnel.svg);
+      }
+
+      .poster-dark.poster--security .poster-text__logo {
+        background-image: url(../../svg/white/security.svg);
+      }
+
+      /* Print styles */
+      @media print {
+        @page { margin: 0 20px; }
+
+        .sidebar {
+          display: none;
+        }
+
+        .poster-text {
+          height: 1050px;
+          margin-right: 0;
+        }
+
+        .poster-text__name-text,
+        .poster-text__memo-text {
+          color: #000;
+          border: none;
+        }
+
+        .poster-text__name-text::after,
+        .poster-text__memo-text::after {
+          display: none;
+        }
+
+        .poster-text__body {
+          flex: 0 1 950px;
+        }
+
+        .poster-text__title {
+          color: #000 !important;
+          max-width: 600px;
+        }
+
+        .poster-text__col {
+          flex: 0 1 43%;
+        }
+
+        .poster-text__paragraph {
+          color: #000 !important;
+        }
+
+        textarea {
+          display: none !important;
+        }
+
+        .poster-text__logo {
+          -webkit-print-color-adjust:exact;
+        }
+
+        .poster--accounting .poster-text__logo {
+          background-image: url(../../svg/accounting.svg) !important;
+        }
+
+        .poster--culture .poster-text__logo {
+          background-image: url(../../svg/culture.svg) !important;
+        }
+
+        .poster--digital .poster-text__logo {
+          background-image: url(../../svg/digital.svg) !important;
+        }
+
+        .poster--education .poster-text__logo {
+          background-image: url(../../svg/education.svg) !important;
+        }
+
+        .poster--finance .poster-text__logo {
+          background-image: url(../../svg/finance.svg) !important;
+        }
+
+        .poster--govfin .poster-text__logo {
+          background-image: url(../../svg/govfin.svg) !important;
+        }
+
+        .poster--govorder .poster-text__logo {
+          background-image: url(../../svg/govorder.svg) !important;
+        }
+
+        .poster--law .poster-text__logo {
+          background-image: url(../../svg/law.svg) !important;
+        }
+
+        .poster--management .poster-text__logo {
+          background-image: url(../../svg/management.svg) !important;
+        }
+
+        .poster--medicine .poster-text__logo {
+          background-image: url(../../svg/medicine.svg) !important;
+        }
+
+        .poster--personnel .poster-text__logo {
+          background-image: url(../../svg/personnel.svg) !important;
+        }
+
+        .poster--security .poster-text__logo {
+          background-image: url(../../svg/security.svg) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="poster-text">
+        <div class="poster-text__head">
+          <div class="poster-text__edit">
+            <div class="poster-text__name">
+              <div class="poster-text__name-text" id="nameField" onclick="onClickName();"></div>
+              <textarea name="" id="nameInput" class="poster-text__name-input" placeholder="Название компании или учреждения ✎" maxlength="30"></textarea>
+            </div>
+            <div class="poster-text__memo">
+              <div class="poster-text__memo-text" id="memoField" onclick="onClickMemo();"></div>
+              <textarea name="" id="memoInput" class="poster-text__memo-input" placeholder="Памятка преподавателю ✎" maxlength="30"></textarea>
+            </div>
+          </div>
+          <div class="poster-text__logo">
+          </div>
+        </div>
+        <div class="poster-text__body">
+          <h2 class="poster-text__title">Как написать пост в соцсети, чтобы вас не уволили</h2>
+          <div class="poster-text__content">
+            <div class="poster-text__col">
+              <p class="poster-text__paragraph">
+                Подумайте, как характеризует вас пост, который вы публикуете. Помните, что в 21-м веке по материалам, которые человек выкладывает в соцсетях, судят о его личности.
+              </p>
+              <p class="poster-text__paragraph">
+                Прежде чем публиковать что-то, задумайтесь, как характеризует вас эта информация. Подумайте, для кого предназначен пост. Исходя из этого решите, где его публиковать
+              </p>
+              <p class="poster-text__paragraph">
+                Например, Фейсбук используют в основном родители учеников, коллеги-педагоги. А пост в Вконтакте или Инстаграме увидят и ученики.
+              </p>
+            </div>
+            <div class="poster-text__col">
+              <p class="poster-text__paragraph">
+                Определите, для кого публикуете материал. Задайте себе несколько вопросов. Если ответы положительные — публикуйте.
+              </p>
+              <p class="poster-text__paragraph">
+                То, чем вы делитесь, — важно и интересно для учеников? Вдохновляете ли вы учеников своим постом расти, искать и развиваться?
+              </p>
+              <p class="poster-text__paragraph">
+                Ваш материал не травмирует детей жестокостью или откровенностью, не провоцирует рисковать, совершать поступки, опасные для жизни и здоровья?
+              </p>
+              <p class="poster-text__paragraph">
+                Культурой языка и оформления публикации вы подаете пример?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar__icon"></div>
+        <div class="sidebar__text">
+          Впишите название и адрес своего учреждения в плакат, распечатайте его и используйте в работе
+        </div>
+        <div class="sidebar__actions">
+          <button class="sidebar__download">Скачать</button>
+          <button class="sidebar__print"></button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../iframeResizer.contentWindow.min.js"></script>
+
+    <script>
+      // input logic
+      var nameField = document.getElementById('nameField');
+      var nameInput = document.getElementById('nameInput');
+
+      function inputText(input, field) {
+        if (input.value) {
+          field.style.display = 'block';
+          input.style.display = 'none';
+          field.textContent = input.value;
+        }
+      }
+
+      function onClickName() {
+        nameField.style.display = 'none';
+        nameInput.style.display = 'block';
+        nameInput.focus();
+      }
+
+      nameInput.onfocus = function () {
+        nameInput.setAttribute('placeholder', 'Название компании или учреждения')
+      };
+
+      nameInput.onchange = function() {
+        return inputText(nameInput, nameField);
+      }
+
+      nameInput.onblur = function() {
+        inputText(nameInput, nameField);
+        this.setAttribute('placeholder', 'Название компании или учреждения ✎');
+      }
+
+      var memoField = document.getElementById('memoField');
+      var memoInput = document.getElementById('memoInput');
+
+      function onClickMemo() {
+        memoField.style.display = 'none';
+        memoInput.style.display = 'block';
+        memoInput.focus();
+      }
+
+      memoInput.onfocus = function () {
+        memoInput.setAttribute('placeholder', 'Памятка преподавателю')
+      };
+
+      memoInput.onchange = function() {
+        return inputText(memoInput, memoField);
+      }
+
+      memoInput.onblur = function() {
+        inputText(memoInput, memoField);
+        this.setAttribute('placeholder', 'Памятка преподавателю ✎');
+      }
+    </script>
+  </body>
+</html>
