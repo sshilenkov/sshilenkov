@@ -430,14 +430,22 @@
 
       /* Print styles */
       @media print {
-        @page { margin: 0 20px; }
+        @page {
+          size: A4;
+          margin: 0 20px;
+        }
+
+        html, body {
+          width: 210mm; // A4 Paper width
+          height: 297mm;
+        }
 
         .sidebar {
           display: none;
         }
 
         .can-not {
-          height: 1050px;
+          height: 297mm;
           margin-right: 0;
         }
 
