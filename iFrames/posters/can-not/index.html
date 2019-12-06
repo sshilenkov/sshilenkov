@@ -180,7 +180,6 @@
 
       .can-not__caption {
         margin: 0;
-        font-size: 3vw;
       }
 
       .can-not__possible {
@@ -457,10 +456,22 @@
           justify-content: unset;
         }
 
+        .can-not__name,
+        .can-not__memo {
+          flex: 0 1 31.5px;
+          margin-bottom: 14px;
+        }
+
         .can-not__name-text,
         .can-not__memo-text {
+          padding-bottom: 2.2px;
           color: #000;
           border: none;
+        }
+
+        .can-not__name-input,
+        .can-not__memo-input {
+          font-size: 18px;
         }
 
         .can-not__name-text::after,
@@ -500,6 +511,10 @@
 
         .can-not__paragraph {
           color: #000 !important;
+        }
+
+        .can-not__paragraph:not(:last-child) {
+          margin-bottom: 28px;
         }
 
         textarea {
