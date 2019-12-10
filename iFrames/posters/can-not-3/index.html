@@ -456,13 +456,31 @@
           margin: 0 20px;
         }
 
+        html, body {
+          width: 286mm;
+          max-width: 286mm;
+          height: 190mm;
+          max-height: 190mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
+        }
+
         .sidebar {
           display: none;
         }
 
         .can-not-3 {
-          height: 760px;
+          width: 286mm;
+          max-width: 286mm;
+          min-height: 190mm;
+          height: 190mm;
           margin-right: 0;
+          padding: 40px 20px 23px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
+          box-sizing: border-box;
         }
 
         .can-not-3__name-text,
@@ -476,7 +494,27 @@
         }
 
         .can-not-3__title {
+          flex: 0 0 308px;
+          margin-right: 20px;
           color: #000 !important;
+          font-size: 50px;
+        }
+
+        .can-not-3__body {
+          flex: 1 1 630px;
+          padding-top: 6px;
+        }
+
+        .can-not-3__content {
+          font-size: 28px;
+        }
+
+        .can-not-3__col {
+          flex: 0 1 50%;
+        }
+
+        .can-not-3__col:first-child {
+          margin-right: 20px;
         }
 
         .can-not-3__possible {
@@ -487,12 +525,47 @@
           color: #e10000 !important;
         }
 
-        .can-not-3__col:first-child {
+        .can-not-3__paragraph {
+          color: #000 !important;
+          font-size: 20px;
+        }
+
+        .can-not-3__paragraph:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        .can-not-3__footer {
+          min-height: 40px;
+        }
+
+        .can-not-3__edit {
+          flex: 0 1 390px;
+          height: 40px;
+        }
+
+        .can-not-3__name {
           margin-right: 40px;
         }
 
-        .can-not-3__paragraph {
-          color: #000 !important;
+        .can-not-3__name,
+        .can-not-3__memo {
+          flex: 0 0 175px;
+          font-size: 18px;
+        }
+
+        .can-not-3__name-text,
+        .can-not-3__memo-text {
+          padding-bottom: 4px;
+        }
+
+        .can-not-3__name-input,
+        .can-not-3__memo-input {
+          font-size: 18px;
+        }
+
+        .can-not-3__logo {
+          height: 14px;
+          margin-bottom: 5px;
         }
 
         textarea {

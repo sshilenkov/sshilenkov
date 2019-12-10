@@ -449,7 +449,6 @@
 
       /* Print styles */
       @media print {
-
         @page {
           size: landscape;
           margin: 0 20px;
@@ -458,8 +457,8 @@
         html, body {
           width: 286mm;
           max-width: 286mm;
-          height: 180mm;
-          max-height: 180mm;
+          height: 190mm;
+          max-height: 190mm;
         }
 
         body > *:not(.container) {
@@ -473,12 +472,13 @@
         .can-not-2 {
           width: 286mm;
           max-width: 286mm;
-          min-height: 180mm;
-          height: 180mm;
+          min-height: 190mm;
+          height: 190mm;
           margin-right: 0;
           padding: 40px 20px 23px 15px;
           -webkit-background-size: cover;
           background-size: cover;
+          box-sizing: border-box;
         }
 
         .can-not-2__name-text,
@@ -508,7 +508,7 @@
         }
 
         .can-not-2__col {
-          flex: 0 1 auto;
+          flex: 0 1 50%;
         }
 
         .can-not-2__col:first-child {
