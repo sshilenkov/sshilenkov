@@ -439,7 +439,19 @@
       /* Print styles */
       @media print {
         @page {
+          size: A4;
           margin: 0 20px;
+        }
+
+        html, body {
+          width: 210mm;
+          max-width: 210mm;
+          height: 286mm;
+          max-height: 286mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
         }
 
         .sidebar {
@@ -447,14 +459,44 @@
         }
 
         .scream {
-          height: 1050px;
+          width: 210mm;
+          max-width: 210mm;
+          min-height: 283mm;
+          height: 283mm;
           margin-right: 0;
+          padding: 23px 40px 18px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+
+        .scream__head {
+          min-height: 40px;
+        }
+
+        .scream__edit {
+          flex: 0 1 380px;
+          height: 40px;
+          margin-top: -5px;
+        }
+
+        .scream__logo {
+          height: 14px;
+        }
+
+        .scream__name {
+          margin-right: 20px;
+        }
+
+        .scream__name,
+        .scream__memo {
+          font-size: 18px;
         }
 
         .scream__name-text,
         .scream__memo-text {
-          color: #000;
+          padding-bottom: 4px;
           border: none;
+          color: #000;
         }
 
         .scream__name-text::after,
@@ -462,25 +504,28 @@
           display: none;
         }
 
+        .scream__name-input,
+        .scream__memo-input {
+          font-size: 18px;
+        }
+
         .scream__body {
           flex: 0 1 950px;
         }
 
         .scream__title {
+          max-width: 560px;
           color: #000 !important;
-          max-width: 600px;
-        }
-
-        .scream__col {
-          flex: 0 1 43%;
-        }
-
-        .scream__paragraph {
-          color: #000 !important;
+          font-size: 70px;
         }
 
         .scream__col {
           flex: 0 1 43% !important;
+          font-size: 18px;
+        }
+
+        .scream__col:first-child {
+          margin-right: 30px;
         }
 
         .scream__col:last-child {
@@ -491,8 +536,17 @@
           max-width: 80%;
         }
 
+        .scream__paragraph {
+          color: #000 !important;
+        }
+
+        .scream__paragraph:not(:last-child) {
+          margin-bottom: 18px;
+        }
+
         .scream__highlight {
           color: #000 !important;
+          font-size: 40px;
         }
 
         textarea {
