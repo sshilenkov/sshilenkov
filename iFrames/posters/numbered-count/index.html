@@ -442,21 +442,65 @@
 
       /* Print styles */
       @media print {
-        @page { margin: 0 20px; }
+        @page {
+          size: A4;
+          margin: 0 20px;
+        }
+
+        html, body {
+          width: 210mm;
+          max-width: 210mm;
+          height: 286mm;
+          max-height: 286mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
+        }
 
         .sidebar {
           display: none;
         }
 
         .numbered-count {
-          height: 1050px;
+          width: 210mm;
+          max-width: 210mm;
+          min-height: 283mm;
+          height: 283mm;
           margin-right: 0;
+          padding: 23px 40px 18px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+
+        .numbered-count__head {
+          min-height: 40px;
+        }
+
+        .numbered-count__edit {
+          flex: 0 1 380px;
+          height: 40px;
+          margin-top: -5px;
+        }
+
+        .numbered-count__logo {
+          height: 14px;
+        }
+
+        .numbered-count__name {
+          margin-right: 20px;
+        }
+
+        .numbered-count__name,
+        .numbered-count__memo {
+          font-size: 18px;
         }
 
         .numbered-count__name-text,
         .numbered-count__memo-text {
-          color: #000;
+          padding-bottom: 4px;
           border: none;
+          color: #000;
         }
 
         .numbered-count__name-text::after,
@@ -464,25 +508,39 @@
           display: none;
         }
 
+        .numbered-count__name-input,
+        .numbered-count__memo-input {
+          font-size: 18px;
+        }
+
         .numbered-count__body {
           flex: 0 1 950px;
         }
 
         .numbered-count__title {
-          color: #000 !important;
-          max-width: 600px;
+          max-width: 560px;
+          font-size: 70px;
         }
 
         .numbered-count__title--focus {
-          color: #e10000 !important;
+          font-size: 330px;
         }
 
         .numbered-count__col {
           flex: 0 1 43%;
+          font-size: 18px;
+        }
+
+        .numbered-count__col:first-child {
+          margin-right: 30px;
         }
 
         .numbered-count__paragraph {
           color: #000 !important;
+        }
+
+        .numbered-count__paragraph:not(:last-child) {
+          margin-bottom: 18px;
         }
 
         textarea {
