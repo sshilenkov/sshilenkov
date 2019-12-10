@@ -542,21 +542,65 @@
 
       /* Print styles */
       @media print {
-        @page { margin: 0 20px; }
+        @page {
+          size: A4;
+          margin: 0 20px;
+        }
+
+        html, body {
+          width: 210mm;
+          max-width: 210mm;
+          height: 286mm;
+          max-height: 286mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
+        }
 
         .sidebar {
           display: none;
         }
 
         .instruction {
-          height: 1050px;
+          width: 210mm;
+          max-width: 210mm;
+          min-height: 283mm;
+          height: 283mm;
           margin-right: 0;
+          padding: 23px 40px 18px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+
+        .instruction__head {
+          min-height: 40px;
+        }
+
+        .instruction__edit {
+          flex: 0 1 380px;
+          height: 40px;
+          margin-top: -5px;
+        }
+
+        .instruction__logo {
+          height: 14px;
+        }
+
+        .instruction__name {
+          margin-right: 20px;
+        }
+
+        .instruction__name,
+        .instruction__memo {
+          font-size: 18px;
         }
 
         .instruction__name-text,
         .instruction__memo-text {
-          color: #000;
+          padding-bottom: 4px;
           border: none;
+          color: #000;
         }
 
         .instruction__name-text::after,
@@ -564,21 +608,36 @@
           display: none;
         }
 
+        .poster-text__name-input,
+        .poster-text__memo-input {
+          font-size: 18px;
+        }
+
         .instruction__body {
           flex: 0 1 950px;
         }
 
         .instruction__title {
+          max-width: 560px;
           color: #000 !important;
-          max-width: 600px;
+          font-size: 70px;
         }
 
         .instruction__col {
           flex: 0 1 43%;
+          font-size: 18px;
+        }
+
+        .instruction__col:first-child {
+          margin-right: 30px;
         }
 
         .instruction__paragraph {
           color: #000 !important;
+        }
+
+        .instruction__paragraph:not(:last-child) {
+          margin-bottom: 18px;
         }
 
         .instruction__numbering .counter-2 {
