@@ -407,21 +407,65 @@
 
       /* Print styles */
       @media print {
-        @page { margin: 0 20px; }
+        @page {
+          size: A4;
+          margin: 0 20px;
+        }
+
+        html, body {
+          width: 210mm;
+          max-width: 210mm;
+          height: 286mm;
+          max-height: 286mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
+        }
 
         .sidebar {
           display: none;
         }
 
         .poster-text {
-          height: 1050px;
+          width: 210mm;
+          max-width: 210mm;
+          min-height: 283mm;
+          height: 283mm;
           margin-right: 0;
+          padding: 23px 40px 18px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+
+        .poster-text__head {
+          min-height: 40px;
+        }
+
+        .poster-text__edit {
+          flex: 0 1 380px;
+          height: 40px;
+          margin-top: -5px;
+        }
+
+        .poster-text__logo {
+          height: 14px;
+        }
+
+        .poster-text__name {
+          margin-right: 20px;
+        }
+
+        .poster-text__name,
+        .poster-text__memo {
+          font-size: 18px;
         }
 
         .poster-text__name-text,
         .poster-text__memo-text {
-          color: #000;
+          padding-bottom: 4px;
           border: none;
+          color: #000;
         }
 
         .poster-text__name-text::after,
@@ -429,21 +473,36 @@
           display: none;
         }
 
+        .poster-text__name-input,
+        .poster-text__memo-input {
+          font-size: 18px;
+        }
+
         .poster-text__body {
           flex: 0 1 950px;
         }
 
         .poster-text__title {
+          max-width: 560px;
           color: #000 !important;
-          max-width: 600px;
+          font-size: 70px;
         }
 
         .poster-text__col {
           flex: 0 1 43%;
+          font-size: 18px;
+        }
+
+        .poster-text__col:first-child {
+          margin-right: 30px;
         }
 
         .poster-text__paragraph {
           color: #000 !important;
+        }
+
+        .poster-text__paragraph:not(:last-child) {
+          margin-bottom: 18px;
         }
 
         textarea {
