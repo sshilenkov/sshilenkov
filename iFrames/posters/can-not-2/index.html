@@ -449,9 +449,21 @@
 
       /* Print styles */
       @media print {
+
         @page {
           size: landscape;
           margin: 0 20px;
+        }
+
+        html, body {
+          width: 286mm;
+          max-width: 286mm;
+          height: 210mm;
+          max-height: 210mm;
+        }
+
+        body > *:not(.container) {
+          display: none;
         }
 
         .sidebar {
@@ -459,8 +471,14 @@
         }
 
         .can-not-2 {
-          height: 760px;
+          width: 286mm;
+          max-width: 286mm;
+          min-height: 210mm;
+          height: 210mm;
           margin-right: 0;
+          padding: 40px 20px 23px 15px;
+          -webkit-background-size: cover;
+          background-size: cover;
         }
 
         .can-not-2__name-text,
@@ -474,7 +492,27 @@
         }
 
         .can-not-2__title {
+          flex: 1 0 308px;
+          margin-right: 20px;
           color: #000 !important;
+          font-size: 50px;
+        }
+
+        .can-not-2__body {
+          flex: 1 1 630px;
+          padding-top: 6px;
+        }
+
+        .can-not-2__content {
+          font-size: 28px;
+        }
+
+        .can-not-2__col {
+          flex: 0 1 308px;
+        }
+
+        .can-not-2__col:first-child {
+          margin-right: 20px;
         }
 
         .can-not-2__possible {
@@ -487,6 +525,44 @@
 
         .can-not-2__paragraph {
           color: #000 !important;
+        }
+
+        .can-not-2__paragraph:not(:last-child) {
+          margin-bottom: 28px;
+        }
+
+        .can-not-2__footer {
+          min-height: 40px;
+        }
+
+        .can-not-2__edit {
+          flex: 0 1 390px;
+          height: 40px;
+        }
+
+        .can-not-2__name {
+          margin-right: 40px;
+        }
+
+        .can-not-2__name,
+        .can-not-2__memo {
+          flex: 0 0 175px;
+          font-size: 18px;
+        }
+
+        .can-not-2__name-text,
+        .can-not-2__memo-text {
+          padding-bottom: 4px;
+        }
+
+        .can-not-2__name-input,
+        .can-not-2__memo-input {
+          font-size: 18px;
+        }
+
+        .can-not-2__logo {
+          height: 14px;
+          margin-bottom: 5px;
         }
 
         textarea {
